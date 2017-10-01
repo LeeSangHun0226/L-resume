@@ -1,0 +1,55 @@
+@import 'utils';
+
+.login-container {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  @include material-shadow(2);
+
+  @include media("<huge") {
+    width: 1024px;
+  }
+
+  @include media("<large") {
+    width: 768px;
+  }
+
+  @include media("<medium") {
+    width: 90%;
+  }
+  
+  .bar {
+    height: 8px;
+    background: linear-gradient(to right,lime,limegreen);
+  }
+
+  .content {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+
+  @include media("<large") {
+      flex-direction: column;
+  } 
+    h3 {
+      font-weight: 400;
+      color: material-color('grey', '700');
+      margin-top: 0;
+    }
+    .form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .login-foot {
+      font-size: 0.85rem;
+      display: flex;
+      padding-top: 1rem;
+    }
+   }
+}
