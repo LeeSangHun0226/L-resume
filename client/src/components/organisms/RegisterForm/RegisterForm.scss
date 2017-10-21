@@ -1,0 +1,43 @@
+@import 'utils';
+
+.registerForm {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  @include material-shadow(2);
+
+  @include media("<huge") {
+    width: 1024px;
+  }
+
+  @include media("<large") {
+    width: 768px;
+  }
+
+  @include media("<medium") {
+    width: 90%;
+  }
+
+  .label-container {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+
+    @include media("<medium") {
+      flex-direction: column;
+    }
+
+    .label {
+      width: 20%;
+    }
+  }
+
+  .button-wrapper {
+    padding-bottom: 1rem;
+    margin: auto;
+  }
+  // background: material-color('teal', '600');
+
+}
