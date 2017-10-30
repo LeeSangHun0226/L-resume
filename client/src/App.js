@@ -6,6 +6,7 @@ import LoginPage from './components/pages/LoginPage';
 import SignUpPage from './components/pages/SignUpPage';
 import HomePage from './components/pages/HomePage';
 import RegisterPage from './components/pages/RegisterPage';
+import PdfPage from './components/pages/PdfPage';
 import Header from './components/organisms/Header';
 import { logout } from './helpers/auth';
 import { firebaseAuth } from './firebase';
@@ -33,6 +34,14 @@ const PublicRoute = ({ component: Component, authed, ...rest }) => (
     render={props => authed === false
       ? <Component { ...props } />
       : <Redirect to='/register' />
+    }
+  />
+)
+
+const PdfRoute = ({ component: Component, authed, ...rest }) => (
+  <Route
+    { ...rest }
+    render={props => <Component { ...props } />
     }
   />
 )
@@ -75,6 +84,7 @@ class App extends Component {
               <Route exact path="/" authed={this.state.authed} component={HomePage} />
               <PublicRoute authed={this.state.authed} path="/login" component={LoginPage} />
               <PublicRoute authed={this.state.authed} path="/signup" component={SignUpPage} />
+              <PdfRoute authed={this.state.authed} path="/pdf/:userId" component={PdfPage} />
               <PrivateRoute authed={this.state.authed} path="/register" component={RegisterPage} />
               <Route render={() => <h3>404 Not Found</h3> } />
             </Switch>

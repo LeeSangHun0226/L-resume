@@ -1,16 +1,16 @@
 import React from 'react';
-import styles from './Input.scss';
+import styles from './Textarea.scss';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-const Input = ({ big, fullWidth, className, ...rest }) => {
+const Textarea = ({ big, fullWidth, className, ...rest }) => {
   return (
-    <input className={cx('input', {
+    <textarea className={cx('textarea', {
       big,
       'full-width': fullWidth
     }, className)} {...rest} />
   );
 };
 
-export default Input;
+export default Textarea;

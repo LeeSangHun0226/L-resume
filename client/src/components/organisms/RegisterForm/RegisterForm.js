@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './RegisterForm.scss';
 import classNames from 'classnames/bind';
+import Textarea from '../../atoms/Textarea';
 import Input from '../../atoms/Input';
 import Button from '../../atoms/Button';
 
@@ -32,12 +33,23 @@ const RegisterForm = ({
         return (
           <div key={i} className={cx('label-container')}>
             <p className={cx('label')}>{data.label}</p>
-            <Input
-              fullWidth
-              name={data.label}
-              onChange={onChangeInput}
-              value={data.value ? data.value : ''}
-            />
+            {
+              data.label === 'description' 
+              ?
+                <Textarea
+                  fullWidth
+                  name={data.label}
+                  onChange={onChangeInput}
+                  value={data.value ? data.value : ''}
+                />
+              :
+                <Input
+                  fullWidth
+                  name={data.label}
+                  onChange={onChangeInput}
+                  value={data.value ? data.value : ''}
+                />
+            }
           </div>
       )})}
       <div className={cx('button-wrapper')}>

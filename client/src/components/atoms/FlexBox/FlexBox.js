@@ -4,12 +4,24 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-const FlexBox = ({ row, column, className, children, ...rest }) => {
+const FlexBox = ({
+  row,
+  column,
+  center,
+  right,
+  space,
+  className,
+  children,
+  ...rest
+}) => {
   return (
     <div
       className={cx('flex-box', {
         row,
-        column
+        column,
+        center,
+        right,
+        space,
       }, className)}
       {...rest}>
       {children}

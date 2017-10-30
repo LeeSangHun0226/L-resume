@@ -1,4 +1,23 @@
+@import 'utils';
+
 // .header-nav {
 //   background: yellow;
 //   color: black;
 // }
+
+.header-selected {
+  margin-right: 10rem;
+  padding-bottom: 2rem;
+
+    @include media("<huge") {
+      margin-right: 6rem;
+    }
+
+    @include media("<large") {
+      margin-right: 3rem;
+    }
+
+    @include media("<medium") {
+      margin-right: 1rem;
+    }  
+}

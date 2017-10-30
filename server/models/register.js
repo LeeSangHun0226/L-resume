@@ -21,9 +21,10 @@ const Register = new Schema({
   },
   education: {
     schoolType: { type: String },
-    SchoolName: { type: String },
-    StartName: { type: String },
+    schoolName: { type: String },
+    startDate: { type: String },
     endDate: { type: String },
+    description: { type: String },
   },
   academic: {
     description: { type: String },
@@ -32,7 +33,7 @@ const Register = new Schema({
     position: { type: String },
     activityName: { type: String },
     city: { type: String },
-    contry: { type: String },
+    country: { type: String },
     startDate: { type: String },
     endDate: { type: String },
     description: { type: String },
@@ -40,6 +41,7 @@ const Register = new Schema({
   award: {
     name: { type: String },
     year: { type: String },
+    description: { type: String },
   },
 });
 

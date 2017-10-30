@@ -30,6 +30,7 @@ const RegisterAdd = ({
         <div className={cx('bar')} />
         <Button roundCorner width={20} onClick={onAddLink}>+Add Link </Button>
       </div>
+      
       <div className={cx('add-wrapper')}>
       {
         !isPhotoAdded ? false : 
