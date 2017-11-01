@@ -1,18 +1,28 @@
 @import 'utils';
 
 .header {
-  height: 3.5rem;
-  &.solid {
-    background: linear-gradient(to right bottom, #276caf, #30a1c1);
+  height: 5rem;
+  border-bottom: 0.5px solid rgb(201, 197, 197);
+  
+  @include media("<medium") {
+    background: white;
+  }  
+
+  &.home {
+    border-bottom: 0px
   }
-  // background: material-color('teal', '600');
+
+
   .responsive {
-    padding-left: 1rem;
-    padding-right: 1rem;
     @include responsive();
     display: flex;
     height: 100%;
+    justify-content: space-between;
     align-items: center;
+
+    @include media("<medium") {
+      width: 90%;
+    }  
 
     .right-side {
       display: flex;

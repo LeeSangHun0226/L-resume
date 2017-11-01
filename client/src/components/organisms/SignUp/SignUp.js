@@ -14,7 +14,7 @@ const SignUp = ({
   onChangeInput,
   onSignUp,
 }) => {
-  console.log(error)
+
   const {
     email,
     password,
@@ -28,7 +28,6 @@ const SignUp = ({
 
   return (
     <div className={cx('signUp-container')}>
-      <div className={cx('bar')} />
         <div className={cx('content')}>
           <div className={cx('form')}>
             <Input
@@ -36,6 +35,7 @@ const SignUp = ({
               onChange={onChangeInput}
               name="email"
               placeholder="e-mail"
+              fullWidth
             />
             <InputError error={emailError} />
           </div>
@@ -46,10 +46,9 @@ const SignUp = ({
               name="password"
               placeholder="password"
               type="password"
+              fullWidth
             />
             <InputError error={passwordError} />
-          </div>
-          <div className={cx('form')}>
             <InputError error={signUpError} />
           </div>
           <div className={cx('form')}>

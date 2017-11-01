@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import RegisterForm from '../components/organisms/RegisterForm';
 import RegisterAdd from '../components/organisms/RegisterAdd';
+import { fetchServerConfig } from '../config';
 
 class RegisterFormContainer extends Component {
 
@@ -18,7 +19,7 @@ class RegisterFormContainer extends Component {
   componentDidMount() {
 
     const userId = localStorage.getItem('userId');
-    axios.get(`http://localhost:4000/api/register/${userId}`)
+    axios.get(`http://${fetchServerConfig.ip}:4000/api/register/${userId}`)
     .then((res) => {
       this.setState({
         inputContents: res.data[0],
@@ -44,7 +45,18 @@ class RegisterFormContainer extends Component {
   handleChangeInput = (e) => {
     const { name, value } = e.target;
     const { path, title, inputContents } = this.state;
-    if (!this.state.isInputFlag && !inputContents[path]) {
+
+
+    // if (path === 'contact') {
+    //   const nextInputContents = { ...inputContents };
+    //   nextInputContents[path][name] = value;
+    //   this.setState({
+    //     inputContents: nextInputContents,
+    //   })
+    // }
+    
+
+    if (!inputContents[path]) {
       inputContents[path] = {};
       inputContents[path][name] = value;
       this.setState({
@@ -58,6 +70,30 @@ class RegisterFormContainer extends Component {
       this.setState({
         inputContents: totalInputContents,
       })
+
+     // if (!this.state.isInputFlag && !inputContents[path]) {
+    //   inputContents[path] = [];
+    //   const obj = {};
+    //   obj[name] = value;
+    //   inputContents[path].push(obj)
+    //   console.log(inputContents)
+    //   this.setState({
+    //     inputContents: inputContents,
+    //     isInputFlag: true,
+    //   })
+    // }
+
+
+    // const currentInputContents = inputContents;
+    // currentInputContents[path] = [];
+    // const obj = {};
+    // obj[name] = value;
+    // currentInputContents[path].push(obj)
+    // const totalInputContents = Object.assign(currentInputContents, inputContents);
+    // // console.log(currentInputContents, inputContents)
+    // this.setState({
+    //   inputContents: totalInputContents,
+    // })
   }
 
   handleAddRegister = () => {
@@ -76,11 +112,20 @@ class RegisterFormContainer extends Component {
     // this.pdfToHTML()
     const data = this.state.inputContents;
     const userId = localStorage.getItem('userId')
-    axios.post(`http://localhost:4000/api/register/${userId}`, data)
+    axios.post(`http://${fetchServerConfig.ip}:4000/api/register/${userId}`, data)
     .then(data => 
       alert('saving is completed!')
     )
     .catch(err => console.log(err)) 
+  }
+
+  handleAddForm = () => {
+    const { path, inputContents } = this.state;
+    const nextInputContents = { ...inputContents };
+    nextInputContents[path]['id'] += 1;
+    this.setState({
+      inputContents: nextInputContents,
+    })
   }
 
   handleAddPhoto = () => {
@@ -129,6 +174,7 @@ class RegisterFormContainer extends Component {
   }
 
   render() {
+    
     const {
       handleChangeInput,
       handleSubmitForm,
@@ -137,6 +183,7 @@ class RegisterFormContainer extends Component {
       handleAddPhotoUrl,
       handleAddLinkUrl,
       handleSubmitLink,
+      handleAddForm,
     } = this;
     
     const { title, label, inputContents, path, isPhotoAdded, isLinkAdded } = this.state;
@@ -162,6 +209,7 @@ class RegisterFormContainer extends Component {
           onAddPhotoUrl={handleAddPhotoUrl}
           onAddLinkUrl={handleAddLinkUrl}
           onSubmitLink={handleSubmitLink}
+          onAddForm={handleAddForm}
         />
       </div>
     );

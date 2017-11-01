@@ -11,15 +11,16 @@ const Header = ({
   user,
   solid,
   authed,
+  location,
 }) => {
   return (
-    <div className={cx('header', { solid })}>
+    <div className={cx('header', location )}>
       <div className={cx('responsive')}>
         <div className={cx('logo-wrapper')}>
-          <Logo />
+          <Logo location={location} />
         </div>
         <div>
-          <HeaderNav authed={authed}/>
+          <HeaderNav authed={authed} location={location}/>
         </div>
       </div>
     </div>

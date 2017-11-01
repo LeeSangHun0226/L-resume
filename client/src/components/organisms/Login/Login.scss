@@ -5,7 +5,8 @@
   display: flex;
   flex-direction: column;
   width: 80%;
-  @include material-shadow(2);
+  margin: auto;
+  min-height: 700px;
 
   @include media("<huge") {
     width: 1024px;
@@ -17,12 +18,6 @@
 
   @include media("<medium") {
     width: 90%;
-  }
-  
-  .bar {
-    height: 8px;
-    background: ghostwhite;
-    // background: linear-gradient(to right,lime,limegreen);
   }
 
   .content {

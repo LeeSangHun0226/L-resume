@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-const Logo = () => {
+const Logo = ({ location }) => {
   return (
-    <Link to="/" className={cx('logo')}>
-      resume
+    <Link to="/" className={cx('logo', location)}>
+      LESUME BUILDER
     </Link>
   );
 };

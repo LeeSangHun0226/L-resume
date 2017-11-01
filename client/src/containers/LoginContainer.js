@@ -9,6 +9,7 @@ import {
   authSetError,
 } from '../actions/auth_action.js';
 import Login from '../components/organisms/Login';
+import { fetchServerConfig } from '../config';
 
 const setErrorMessage = (err) => {
   return {
@@ -57,7 +58,7 @@ class LoginContainer extends Component {
     const { authSetError } =this.props;
     login(email, password)
       .then(() => {
-        axios.get(`http://localhost:4000/api/user/${email}`)
+        axios.get(`http://${fetchServerConfig.ip}:4000/api/user/${email}`)
         .then(res => localStorage.setItem('userId', res.data[0]._id ))
         .catch(err => console.log(err))
       })

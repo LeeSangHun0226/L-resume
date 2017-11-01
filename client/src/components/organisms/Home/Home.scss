@@ -1,0 +1,114 @@
+@import 'utils';
+
+.home {
+  background: transparent;
+
+  &.white {
+    background: white;
+  }
+  .home-background {
+    background-image: url('../../../images/home-background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 700px;
+
+    .home-content-wrapper {
+      position: absolute;
+      width: 100%;
+      top: 20%;
+      text-align: center;
+
+      .home-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: white;
+      }
+
+      .home-sub-title {
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: white;
+        margin: 0.5rem;
+      }
+    }
+  }
+
+  .middle-wrapper {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    width: 100%;
+    margin: auto;
+    // background: material-color('teal', '600');
+    display: flex;
+    flex-wrap: wrap;
+    // .responsive {
+    //   padding-left: 1rem;
+    //   padding-right: 1rem;
+    //   @include responsive();
+    //   display: flex;
+    //   height: 100%;
+    //   align-items: center;
+
+    //   .right-side {
+    //     display: flex;
+    //     margin-left: auto;
+    //   }
+    // }
+
+    .middle-box {
+      flex: 1 1 calc(100%/3);
+      @include media("<large") {
+        flex: 1 1 calc(100%/2);
+      }
+
+      @include media("<medium") {
+        flex: 1 1 calc(100%);
+      }  
+    }
+
+    .middle-content-wrapper {
+      padding: 1rem;
+      margin: auto;
+      width: calc(100%/2);
+    }
+    // .middle-box:nth-child(odd) {
+    //   flex: 0 0 50px;
+    // }
+
+    .middle-content-title {
+      text-align: center;
+    }
+
+    .middle-content-sub-title {
+      text-align: center;
+      color: grey;
+    }
+  }
+
+  .last-wrapper {
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background: material-color('grey', '100');
+    
+    .last-logo {
+      display: block;
+      margin: auto;
+      width: 10%;
+      height: 60px;
+    }
+
+    .last-title {
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    .last-sub-title {
+      text-align: center;
+      font-size: 1rem;
+      color: grey;
+    }
+  }
+}

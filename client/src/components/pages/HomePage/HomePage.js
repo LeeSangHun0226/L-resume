@@ -1,16 +1,15 @@
 import React from 'react';
 import PageTemplate from '../../templates/PageTemplate';
 import HeaderContainer from '../../../containers/HeaderContianer';
-import LoginContainer from '../../../containers/LoginContainer';
-import SignUpContainer from '../../../containers/SignUpContainer';
+import Home from '../../organisms/Home';
 
-const HomePage = (props) => {
-  console.log('page', props)
+const HomePage = ({ authed }) => {
   return (
     <PageTemplate
-      // header={<HeaderContainer />}
+      header={<HeaderContainer authed={authed} location="home" />}
+      location="home"
     >
-      hi
+      <Home />
     </PageTemplate>
   );
 };

@@ -9,7 +9,7 @@ import {
   userConfirmAuthCode,
 } from '../actions/user_action.js';
 import SignUp from '../components/organisms/SignUp';
-import appConfig from '../config';
+import { fetchServerConfig } from '../config';
 
 const setErrorMessage = (err) => {
   return {
@@ -59,7 +59,7 @@ class SignUpContainer extends Component {
     const { userSetError } = this.props;
     auth(email, password)
     .then(() => {
-      axios.post('http://localhost:4000/api/user', {
+      axios.post(`http://${fetchServerConfig.ip}:4000/api/user`, {
         email,
         password,
       })

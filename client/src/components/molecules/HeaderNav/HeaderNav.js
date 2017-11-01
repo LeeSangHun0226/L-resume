@@ -7,7 +7,7 @@ import { logout } from '../../../helpers/auth';
 
 const cx = classNames.bind(styles);
 
-const HeaderNav = ({ authed }) => {
+const HeaderNav = ({ authed, location }) => {
   return (
     <FlexBox
       row
@@ -16,20 +16,19 @@ const HeaderNav = ({ authed }) => {
     {
       authed
       ?
-        <NavItem 
+        <NavItem
+          location={location}
           to="/" 
           onClick={() => logout()}>
-            로그아웃
+            LOG OUT
         </NavItem>
       :
-      <FlexBox>
-        <NavItem to="/signup">
-          가입하기
+        <NavItem
+          location={location}
+          to="/login"
+        >
+          LOG IN
         </NavItem>
-        <NavItem to="/login">
-          로그인
-        </NavItem>
-      </FlexBox>  
     }
     </FlexBox>
   );

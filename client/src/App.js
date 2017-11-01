@@ -8,6 +8,7 @@ import HomePage from './components/pages/HomePage';
 import RegisterPage from './components/pages/RegisterPage';
 import PdfPage from './components/pages/PdfPage';
 import Header from './components/organisms/Header';
+import Footer from './components/organisms/Footer';
 import { logout } from './helpers/auth';
 import { firebaseAuth } from './firebase';
 import store from './store';
@@ -17,7 +18,7 @@ const PrivateRoute = ({ component: Component, authed, ...rest }) => (
   <Route 
     { ...rest }
     render={props => authed === true
-      ? <Component { ...props } />
+      ? <Component { ...props } authed />
       : <Redirect to={{
           pathname: '/login',
           state: {
@@ -32,7 +33,7 @@ const PublicRoute = ({ component: Component, authed, ...rest }) => (
   <Route
     { ...rest }
     render={props => authed === false
-      ? <Component { ...props } />
+      ? <Component { ...props } authed />
       : <Redirect to='/register' />
     }
   />
@@ -74,12 +75,11 @@ class App extends Component {
   }
 
   render() {
-
     return this.state.loading === true ? <h1>Loading</h1> : (
       <Provider store={store}>
         <Router>
           <div style={{ height: '100%' }}>
-            <Header authed={this.state.authed} />
+            {/*<Header authed={this.state.authed} />*/}
             <Switch>
               <Route exact path="/" authed={this.state.authed} component={HomePage} />
               <PublicRoute authed={this.state.authed} path="/login" component={LoginPage} />
@@ -88,6 +88,7 @@ class App extends Component {
               <PrivateRoute authed={this.state.authed} path="/register" component={RegisterPage} />
               <Route render={() => <h3>404 Not Found</h3> } />
             </Switch>
+            <Footer />
           </div>
         </Router>
       </Provider>

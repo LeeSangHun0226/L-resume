@@ -2,8 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const React = require('react');
-const { renderToString } = require('react-dom/server');
 const router = require('./router');
 
 const app = express();
@@ -12,8 +10,8 @@ const port = 4000;
 const db = mongoose.connection;
 db.on('error', console.error);
 db.once('open', () => { console.log('Connected to mogod server'); });
-// mongoose.connect('mongodb://localhost:27017/resume');
-mongoose.connect('mongodb://resume:resume123!@ec2-13-125-28-71.ap-northeast-2.compute.amazonaws.com:14958/resume');
+mongoose.connect('mongodb://localhost:27017/resume');
+// mongoose.connect('mongodb://resume:resume123!@ec2-13-125-28-71.ap-northeast-2.compute.amazonaws.com:14958/resume');
 
 app.listen(port, () => console.log(`server is start. port is ${port}`));
 

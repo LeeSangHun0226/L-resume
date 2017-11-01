@@ -2,11 +2,12 @@
 
 .input {
   outline: none;
-  border-radius: 2px;
+  border-radius: 10px;
   border: 1px solid material-color('grey', '400');
   padding: 0.5rem;
   font-size: 1.25rem;
   transition: color .3s, border-color .3s;
+  height: 2rem;
   &.full-width {
     width: 100%;
   }

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+// import path from 'path';
+// import nightmare from 'nightmare';
 import Pdf from '../components/organisms/Pdf';
+import { fetchServerConfig, pdfServerConfig } from '../config';
 
 class PdfContainer extends Component {
 
@@ -10,9 +13,10 @@ class PdfContainer extends Component {
   }
 
   componentDidMount() {
-    const { userId } = this.props.match.params;
+    // const { userId } = this.props.match.params;
+    const userId = localStorage.getItem('userId');
     
-    axios.get(`http://localhost:4000/api/register/${userId}`)
+    axios.get(`http://${fetchServerConfig.ip}:4000/api/register/${userId}`)
     .then((res) => {
       this.setState({
         data: res.data[0],
@@ -22,17 +26,17 @@ class PdfContainer extends Component {
   }
 
   componentWillMount() {
-    const { userId } = this.props.match.params;
-    const iframe = `<iframe width='100%' height='100%' src='http://localhost:9000/api/render?url=http://localhost:3000/pdf/${userId}'></iframe>`
-    const x = window.open();
-    x.document.open();
-    x.document.write(iframe);
-    x.document.close();
+    
   }
 
   render() {
+    const userId = localStorage.getItem('userId');
     return this.state.loading === true ? <h1>Loading</h1> : (
       <div>
+        <button onClick={() => {
+          window.print();
+        }}
+        >open pdf</button>
         <Pdf data={this.state.data} />
       </div>
     )

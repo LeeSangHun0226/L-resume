@@ -1,26 +1,10 @@
 @import 'utils';
 
 .page {
-  header {
-    width: 100%;
-    // position: fixed;
-    top: 0;
-    left: 0;
-    z-index: z-index-for('header');
-  }
-
+  background: #f1f1f1;
+  
   .content {
-    background-color: seashell;
-    min-height: 700px;
-    
-
-    &.padding {
-      padding-top: 3.5rem;
-    }
-    &.responsive {
-      padding-left: 1rem;
-      padding-right: 1rem;
-      @include responsive();
-    }
+    width: 80%;
+    margin: auto;
   }
 }

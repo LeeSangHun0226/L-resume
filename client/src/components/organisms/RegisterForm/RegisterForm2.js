@@ -16,16 +16,17 @@ const RegisterForm = ({
   title,
   path,
 }) => {
-  console.log(inputContents)
+
   const validate = inputContents[path] ? inputContents[path] : {};
   const inputArray = [];
-  
+  // console.log(label, 'label')
   label.forEach(data => {
     const inputObject = {};
     inputObject.label = data;
     inputObject.value = validate[data];
     inputArray.push(inputObject);
   })
+  // console.log(inputArray, 'array')
 
   return (
     <div className={cx('registerForm', { solid })}>

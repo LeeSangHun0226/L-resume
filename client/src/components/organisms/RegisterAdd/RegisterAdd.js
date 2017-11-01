@@ -11,6 +11,7 @@ const RegisterAdd = ({
   inputContents,
   solid,
   title,
+  onAddForm,
   onAddPhoto,
   onAddLink,
   onAddPhotoUrl,
@@ -25,6 +26,7 @@ const RegisterAdd = ({
 
   return (
     <div className={cx('registerAdd', { solid })}>
+      <Button roundCorner width={20} onClick={onAddForm}>+Add Form </Button>
       <div className={cx('button-wrapper')}>
         <Button roundCorner width={20} onClick={onAddPhoto}>+Add photo </Button>
         <div className={cx('bar')} />

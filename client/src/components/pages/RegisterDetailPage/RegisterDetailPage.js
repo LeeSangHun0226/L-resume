@@ -12,7 +12,8 @@ const RegisterDetailPage = (props) => {
     <RegisterTemplate>
       <RegisterTitleContainer title={title} />
       {
-        pathname === '/register' ? <div>resume list 들어갈 곳</div> : <RegisterFormContainer label={label} title={title} path={path} />
+        pathname === '/register' ? <div style={{ minHeight: '400px' }}>resume list 들어갈 곳</div> : 
+        <RegisterFormContainer label={label} title={title} path={path} />
       }
     </RegisterTemplate>
   );
