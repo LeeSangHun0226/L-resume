@@ -11,12 +11,28 @@ const RegisterIndex = ({
   user,
   solid,
   history,
+  onChangeTitle,
+  title,
+  isChangedTitle,
+  onUpdateTitle,
+  onSubmitTitle,
+  navList,
+  onChangeNavList,
 }) => {
   return (
     <div className={cx('RegisterIndex', { solid })}>
       <div className={cx('responsive')}>
         <div>
-          <RegisterIndexNav history={history} />
+          <RegisterIndexNav
+            history={history}
+            onChangeTitle={onChangeTitle}
+            title={title}
+            isChangedTitle={isChangedTitle}
+            onUpdateTitle={onUpdateTitle}
+            onSubmitTitle={onSubmitTitle}
+            navList={navList}
+            onChangeNavList={onChangeNavList}
+          />
         </div>
       </div>
     </div>

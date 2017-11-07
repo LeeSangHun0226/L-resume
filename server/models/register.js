@@ -9,6 +9,7 @@ const Register = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',
   },
+  title: { type: String },
   contact: {
     firstName: { type: String },
     lastName: { type: String },
@@ -16,33 +17,77 @@ const Register = new Schema({
     phone: { type: String },
     email: { type: String },
     photo: { type: String },
-    link: { type: String },
-    isSubmitLinked: { type: Boolean },
   },
   education: {
-    schoolType: { type: String },
-    schoolName: { type: String },
-    startDate: { type: String },
-    endDate: { type: String },
-    description: { type: String },
+    body: [{
+      schoolType: { type: String },
+      schoolName: { type: String },
+      startDate: { type: String },
+      endDate: { type: String },
+      description: { type: String },
+    }],
+    photo: [{
+      data_uri: { type: String },
+      filename: { type: String },
+      photoFlag: { type: Boolean },
+    }],
+    link: [{
+      linkUrl: { type: String },
+    }],
   },
   academic: {
-    description: { type: String },
+    body: [{
+      description: { type: String },
+    }],
+    photo: [{
+      data_uri: { type: String },
+      filename: { type: String },
+      photoFlag: { type: Boolean },
+    }],
+    link: [{
+      linkUrl: { type: String },
+      linkFlag: { type: Boolean },
+    }],
   },
   extracurricular: {
-    position: { type: String },
-    activityName: { type: String },
-    city: { type: String },
-    country: { type: String },
-    startDate: { type: String },
-    endDate: { type: String },
-    description: { type: String },
+    body: [{
+      position: { type: String },
+      activityName: { type: String },
+      city: { type: String },
+      country: { type: String },
+      startDate: { type: String },
+      endDate: { type: String },
+      description: { type: String },
+    }],
+    photo: [{
+      data_uri: { type: String },
+      filename: { type: String },
+      photoFlag: { type: Boolean },
+    }],
+    link: [{
+      linkUrl: { type: String },
+    }],
   },
   award: {
-    name: { type: String },
-    year: { type: String },
-    description: { type: String },
+    body: [{
+      name: { type: String },
+      year: { type: String },
+    }],
+    photo: [{
+      data_uri: { type: String },
+      filename: { type: String },
+      photoFlag: { type: Boolean },
+    }],
+    link: [{
+      linkUrl: { type: String },
+    }],
   },
+  extra: [{
+    title: { type: String },
+    body: [{
+      description: { type: String },
+    }],
+  }],
 });
 
 module.exports = mongoose.model('Register', Register);

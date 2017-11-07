@@ -37,6 +37,9 @@ const SignUp = ({
               placeholder="e-mail"
               fullWidth
             />
+            <a href="http://naver.com">
+              <TextButton>이용약관</TextButton>
+            </a>
             <InputError error={emailError} />
           </div>
           <div className={cx('form')}>

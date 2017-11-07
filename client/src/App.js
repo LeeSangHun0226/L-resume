@@ -34,7 +34,7 @@ const PublicRoute = ({ component: Component, authed, ...rest }) => (
     { ...rest }
     render={props => authed === false
       ? <Component { ...props } authed />
-      : <Redirect to='/register' />
+      : <Redirect to='/register/contact' />
     }
   />
 )

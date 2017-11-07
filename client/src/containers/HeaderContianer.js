@@ -4,9 +4,9 @@ import Header from '../components/organisms/Header';
 class HeaderContainer extends Component {
 
   render() {
-    const { authed, location } = this.props;
+    const { authed, location, history } = this.props;
     return (
-      <Header authed={authed} location={location} />
+      <Header authed={authed} location={location} history={history} />
     );
   }
 }

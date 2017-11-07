@@ -16,6 +16,7 @@ const Home = ({
   solid,
   authed,
   backgroundColor,
+  history
 }) => {
   return (
     <div className={cx('home', { backgroundColor })}>
@@ -30,7 +31,7 @@ const Home = ({
           <p className={cx('home-sub-title')}>
             본인의 resume를 편하게 작성 해보세요.
           </p>
-          <SignUpContainer />
+          <SignUpContainer history={history} />
         </div>
       </div>
       <div className={cx('middle-wrapper')} >

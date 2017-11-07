@@ -3,13 +3,14 @@ import PageTemplate from '../../templates/PageTemplate';
 import HeaderContainer from '../../../containers/HeaderContianer';
 import Home from '../../organisms/Home';
 
-const HomePage = ({ authed }) => {
+const HomePage = ({ authed, history }) => {
+
   return (
     <PageTemplate
-      header={<HeaderContainer authed={authed} location="home" />}
+      header={<HeaderContainer history={history} authed={authed} location="home" />}
       location="home"
     >
-      <Home />
+      <Home history={history} />
     </PageTemplate>
   );
 };

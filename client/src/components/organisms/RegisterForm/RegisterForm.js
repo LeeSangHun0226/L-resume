@@ -8,28 +8,15 @@ import Button from '../../atoms/Button';
 const cx = classNames.bind(styles);
 
 const RegisterForm = ({
-  solid,
-  label,
-  onChangeInput,
-  onSubmitForm,
-  inputContents,
-  title,
-  path,
+  inputData,
+  onSubmit,
+  onUpdateValue,
 }) => {
-  console.log(inputContents)
-  const validate = inputContents[path] ? inputContents[path] : {};
-  const inputArray = [];
-  
-  label.forEach(data => {
-    const inputObject = {};
-    inputObject.label = data;
-    inputObject.value = validate[data];
-    inputArray.push(inputObject);
-  })
 
+  
   return (
-    <div className={cx('registerForm', { solid })}>
-      {inputArray.map((data, i) => {
+    <div className={cx('registerForm')}>
+      {inputData.map((data, i) => {
         return (
           <div key={i} className={cx('label-container')}>
             <p className={cx('label')}>{data.label}</p>
@@ -39,21 +26,21 @@ const RegisterForm = ({
                 <Textarea
                   fullWidth
                   name={data.label}
-                  onChange={onChangeInput}
+                  onChange={e => onUpdateValue(e, data.name)}
                   value={data.value ? data.value : ''}
                 />
               :
                 <Input
                   fullWidth
                   name={data.label}
-                  onChange={onChangeInput}
+                  onChange={e => onUpdateValue(e, data.name)}
                   value={data.value ? data.value : ''}
                 />
             }
           </div>
       )})}
       <div className={cx('button-wrapper')}>
-        <Button roundCorner width={20} onClick={onSubmitForm}>Save</Button>
+        <Button roundCorner width={20} onClick={onSubmit}>Save</Button>
       </div>
     </div>
   );
