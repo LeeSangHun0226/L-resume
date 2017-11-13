@@ -4,16 +4,21 @@
   padding-top: 0.5rem;
   padding-bottom: 0.15rem;
   border-bottom: 1px solid transparent;
+  font-size: 0.7rem;
+  font-weight: bold;
   cursor: pointer;
   &.right {
     margin-left: auto;
   }
+  &.left {
+    text-align: left;
+  }
   &:hover {
-    color: material-color('teal', '400');
+    color: material-color('blue', 'a700');
     // border-bottom: 1px solid material-color('teal', '600');
   }
   &:active {
-    color: material-color('teal', '700');
+    color: material-color('blue', 'a700');
     // border-bottom: 1px solid material-color('teal', '700');
   }
 }

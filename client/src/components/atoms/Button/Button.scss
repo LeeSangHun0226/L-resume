@@ -2,23 +2,34 @@
 
 .button {
   display: inline-block;
-  font-size: 1.25rem;
+  font-size: 1rem;
   text-align: center;
-  padding-top: 0.4rem;
-  padding-bottom: 0.4rem;
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
+  // padding-top: 0.4rem;
+  // padding-bottom: 0.4rem;
+  // padding-left: 0.8rem;
+  // padding-right: 0.8rem;
+  padding: 1.5rem;
   font-weight: 600;
   cursor: pointer;
   user-select: none;
+  color: white;
+  font-weight: 200;
+  // padding: 1rem;
+  text-align: center;
 
   // default
-  background: material-color('blue', 'a700');
+  background: material-color('grey', '700');
+
+  &.blue {
+    background: material-color('blue', 'a700');
+  }
   &:hover {
-    background: material-color('grey', '200');
+    background: material-color('grey', '300');
+    color: black;
   }
   &:active {
     background: material-color('grey', '300');
+    color: black;
   }
 
   &.invert {

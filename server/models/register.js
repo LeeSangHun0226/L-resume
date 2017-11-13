@@ -33,6 +33,7 @@ const Register = new Schema({
     }],
     link: [{
       linkUrl: { type: String },
+      linkFlag: { type: Boolean },
     }],
   },
   academic: {
@@ -66,6 +67,7 @@ const Register = new Schema({
     }],
     link: [{
       linkUrl: { type: String },
+      linkFlag: { type: Boolean },
     }],
   },
   award: {
@@ -80,6 +82,7 @@ const Register = new Schema({
     }],
     link: [{
       linkUrl: { type: String },
+      linkFlag: { type: Boolean },
     }],
   },
   extra: [{

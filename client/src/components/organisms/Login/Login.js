@@ -34,24 +34,22 @@ const Login = ({
     <div className={cx('login-container')}>
       <div className={cx('bar')} />
       <div className={cx('content')}>
+        <h3 className={cx('title')}>로그인</h3>
         <div className={cx('form')}>
           <Input
             value={email}
             onChange={onChangeInput}
             name="email"
-            placeholder="e-mail"
+            placeholder="E-mail(이메일주소)"
           />
           <InputError error={emailError} />
-          <a href="http://naver.com">
-            <TextButton onClick={onMoveTerms}>이용약관</TextButton>
-          </a>
         </div>
         <div className={cx('form')}>
           <Input
             value={password}
             onChange={onChangeInput}
             name="password"
-            placeholder="password"
+            placeholder="Password(비밀번호)"
             type="password"
           />
           <InputError error={passwordError} />
@@ -61,7 +59,7 @@ const Login = ({
           <InputError error={loginError} />
         </div>
         <div className={cx('form')}>
-          <Button roundCorner width={10} onClick={onLogIn}>시작</Button>
+          <Button roundCorner className={cx('button')} onClick={onLogIn}>로그인</Button>
         </div>
       </div>
     </div>

@@ -5,8 +5,8 @@
   display: flex;
   flex-direction: column;
   width: 80%;
-  margin: auto;
   min-height: 700px;
+  margin: auto;
 
   @include media("<huge") {
     width: 1024px;
@@ -22,20 +22,49 @@
 
   .content {
     padding: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    width: 30%;
 
-  @include media("<large") {
-      flex-direction: column;
-  } 
+    @include media("<huge") {
+      width: 40%;
+    } 
+
+    @include media("<large") {
+      width: 50%;
+    } 
+
+    @include media("<medium") {
+      width: 60%;
+    } 
+
+    @include media("<small") {
+      width: 80%;
+    } 
+
+    .title {
+      font-weight: bold;
+    }
+
     h3 {
       font-weight: 400;
       color: material-color('grey', '700');
       margin-top: 0;
+      text-align: center;
     }
     .form {
       display: flex;
       flex-direction: column;
+      padding: 0.5rem;
+
+      .button {
+        // padding: 1rem;
+        // width: 100%;
+      }
     }
 
     .login {
@@ -46,6 +75,7 @@
       font-size: 0.85rem;
       display: flex;
       padding-top: 1rem;
+      // width: 100%;
     }
    }
 }

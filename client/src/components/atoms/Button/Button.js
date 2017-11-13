@@ -12,11 +12,12 @@ const Button = ({
   invert, 
   flat,
   color,
-  padding="0.5rem",
+  padding,
   xPadding,
   style,
   disabled,
   width,
+  blue,
   ...rest
 }) => {
   const dynamicStyle = {
@@ -34,6 +35,7 @@ const Button = ({
           flat,
           disabled,
           roundCorner,
+          blue,
         }, color, className)
       }
       style={{

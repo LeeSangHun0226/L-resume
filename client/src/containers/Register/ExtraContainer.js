@@ -40,7 +40,7 @@ class ExtraContainer extends Component {
       photo,
       link,
     })
-      .then(res => console.log(res))
+      .then(res => alert('저장되었습니다'))
 
 
     event.preventDefault();

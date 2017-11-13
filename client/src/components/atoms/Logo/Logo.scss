@@ -7,6 +7,10 @@
   user-select: none;
   cursor: pointer;
 
+  @include media("<medium") {
+    // font-size: 1.5rem;
+  }  
+
   &.home {
     color: white;
      

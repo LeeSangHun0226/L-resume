@@ -13,8 +13,10 @@ const Footer = ({
 }) => {
   return (
     <div className={cx('footer', { solid })}>
-      <p>2017 Lprep All rights reserved</p>
-      <ScrollButton scrollStepInPs="50" delayInMs="10" title="GO TO TOP"/>
+      <div className={cx('content')}>
+        <p>&copy; 2017 Lprep All rights reserved</p>
+        <ScrollButton scrollStepInPs="50" delayInMs="10" title="Back to the top"/>
+      </div>
     </div>
   );
 };

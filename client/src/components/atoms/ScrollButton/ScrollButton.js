@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import styles from './ScrollButton.scss';
 import classNames from 'classnames/bind';
+import footerTopImg from '../../../images/footer-top.svg';
 
 const cx = classNames.bind(styles);
 
@@ -27,7 +28,7 @@ class ScrollButton extends Component {
         className={cx('scrollButton')}
         onClick={() => this.scrollToTop()}
       >
-        {this.props.title}
+        <img src={footerTopImg} alt="footerTop" />
       </button>
     );
   }

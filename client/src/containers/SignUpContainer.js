@@ -66,7 +66,7 @@ class SignUpContainer extends Component {
       .then((res) => {
         localStorage.setItem('userId', res.data._id)
         this.props.history.push({
-          pathname: `/register`,
+          pathname: `/register/contact`,
         })
       })
       .catch(err => console.log(err))

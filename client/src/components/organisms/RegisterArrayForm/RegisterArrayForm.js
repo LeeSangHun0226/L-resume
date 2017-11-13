@@ -110,7 +110,8 @@ const RegisterArrayForm = ({
         ))}
       </div>
       <div>
-        {link.map((data, index) => (
+        {link.map((data, index) => {
+          return (
           <div key={index}>
           {
             !data.linkFlag
@@ -128,7 +129,8 @@ const RegisterArrayForm = ({
               </div>
           }
         </div>  
-        ))}
+        )
+        })}
       </div>
     </div>
   );

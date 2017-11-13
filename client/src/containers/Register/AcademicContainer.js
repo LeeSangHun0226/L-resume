@@ -28,7 +28,6 @@ class AcademicContainer extends Component {
         photo,
         link,
       })
-      console.log(this.state.photo)
     })
   }
 
@@ -40,7 +39,7 @@ class AcademicContainer extends Component {
       photo,
       link,
     })
-    .then(res => console.log(res))
+    .then(res => alert('저장되었습니다'))
 
 
     event.preventDefault();

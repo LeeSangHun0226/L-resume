@@ -5,6 +5,7 @@ import notebookSVG from '../../../images/home-notebook.svg';
 import homeImage from '../../../images/home-background.jpg';
 import LoginPage from '../../pages/LoginPage';
 import SignUpContainer from '../../../containers/SignUpContainer';
+import Button from '../../atoms/Button';
 
 // import NotebookSVG from 'svg-react-loader?name=NotebookSVG!../../../images/home-notebook.svg';
 
@@ -107,6 +108,9 @@ const Home = ({
         <p className={cx('last-sub-title')}>
           내용만 채워보세요
         </p>
+        <div className={cx('button')}>
+          <Button roundCorner blue onClick={() => window.scroll(0, 0)}>무료로 시작</Button>
+        </div>
       </div>
     </div>
   );

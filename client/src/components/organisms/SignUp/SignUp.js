@@ -31,31 +31,31 @@ const SignUp = ({
         <div className={cx('content')}>
           <div className={cx('form')}>
             <Input
+              transparent
               value={email}
               onChange={onChangeInput}
               name="email"
-              placeholder="e-mail"
-              fullWidth
+              placeholder="E-mail(이메일 주소)"
             />
-            <a href="http://naver.com">
-              <TextButton>이용약관</TextButton>
-            </a>
+            <div className={cx('term')}>
+              회원가입시 &nbsp; <a href="http://naver.com">이용약관</a>에 자동동의
+            </div>
             <InputError error={emailError} />
           </div>
           <div className={cx('form')}>
             <Input
+              transparent
               value={password}
               onChange={onChangeInput}
               name="password"
-              placeholder="password"
+              placeholder="Password(비밀번호)"
               type="password"
-              fullWidth
             />
             <InputError error={passwordError} />
             <InputError error={signUpError} />
           </div>
-          <div className={cx('form')}>
-            <Button roundCorner width={10} onClick={onSignUp}>회원가입</Button>
+          <div className={cx('form-button')}>
+            <Button roundCorner onClick={onSignUp} color={"blue"}>무료로 시작</Button>
           </div>
         </div>
     </div>

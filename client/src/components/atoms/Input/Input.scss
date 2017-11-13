@@ -4,19 +4,24 @@
   outline: none;
   border-radius: 10px;
   border: 1px solid material-color('grey', '400');
-  padding: 0.5rem;
+  padding: 1.5rem;
   font-size: 1.25rem;
   transition: color .3s, border-color .3s;
-  height: 2rem;
+  // height: 2rem;
   &.full-width {
     width: 100%;
   }
   &:focus {
-    border: 1px solid material-color('teal', '600');
-    color: material-color('teal', '500');
+    border: 1px solid material-color('blue', 'a700');
+    color: material-color('blue', 'a700');
     &::placeholder {
-       color: material-color('teal', '400');
+       color: material-color('blue', 'a700');
     }
+  }
+
+  &.transparnet {
+    background: rgba(240, 240, 240, 0.8);
+    border: 0;
   }
 }
 

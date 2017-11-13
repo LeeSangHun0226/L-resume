@@ -36,7 +36,7 @@ class ContactContainer extends Component {
     axios.post(`http://${fetchServerConfig.ip}:4000/api/register/contact/${userId}`, {
       contact,      
     })
-    .then(res => console.log(res))
+      .then(res => alert('저장되었습니다'))
     event.preventDefault();
   }
 

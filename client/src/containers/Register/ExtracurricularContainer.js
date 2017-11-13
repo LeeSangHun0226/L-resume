@@ -45,7 +45,7 @@ class ExtracurricularContainer extends Component {
       photo,
       link,
     })
-      .then(res => console.log(res))
+      .then(res => alert('저장되었습니다'))
 
     event.preventDefault();
   }
@@ -194,7 +194,7 @@ class ExtracurricularContainer extends Component {
               }
             }
           )
-        });
+        }, () => alert('저장되었습니다'));
       })
   }
 
@@ -213,7 +213,7 @@ class ExtracurricularContainer extends Component {
       axios.post(`http://${fetchServerConfig.ip}:4000/api/link/extracurricular/${userId}`, {
         data: this.state.link,
       })
-        .then(res => console.log(res))
+        .then(res => alert('저장되었습니다'))
     }
     )
   }
