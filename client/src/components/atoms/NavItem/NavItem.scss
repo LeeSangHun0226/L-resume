@@ -6,10 +6,10 @@
   // align-items: center;
   padding-left: 1rem;
   padding-right: 1rem;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 800;
   color: black;
-  opacity: 0.9;
+  opacity: 0.8;
   cursor: pointer;
   transition: all .3s;
   user-select: none;
@@ -19,11 +19,11 @@
 
     @include media("<medium") {
       color: black;
-    }    
+    }
   }
 
   &:hover {
-    font-weight: 700;
+    font-weight: 800;
     opacity: 1;
   }
 }

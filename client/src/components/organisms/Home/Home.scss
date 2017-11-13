@@ -73,7 +73,7 @@
 
       @include media("<medium") {
         flex: 1 1 calc(100%);
-      }  
+      }
     }
 
     .middle-content-wrapper {
@@ -87,18 +87,20 @@
 
     .middle-content-title {
       text-align: center;
+      font-size: 1.4rem;
     }
 
     .middle-content-sub-title {
       text-align: center;
       color: grey;
+      line-height: 1.4rem;
     }
   }
 
   .last-wrapper {
     width: 100%;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
     background-color: #FAFAFA;
 
     .last-logo {
@@ -122,6 +124,8 @@
     .button {
       display: flex;
       justify-content: center;
+      margin-top: 3rem;
+
     }
   }
 }

@@ -24,11 +24,11 @@
     background: material-color('blue', 'a700');
   }
   &:hover {
-    background: material-color('grey', '300');
+    background: material-color('blue', 'a700');
     color: black;
   }
   &:active {
-    background: material-color('grey', '300');
+    background: material-color('blue', '600');
     color: black;
   }
 

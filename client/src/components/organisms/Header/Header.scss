@@ -2,11 +2,11 @@
 
 .header {
   height: 5rem;
-  border-bottom: 0.5px solid rgb(201, 197, 197);
-  
+  border-bottom: 0.5px solid #E6E6E6;
+
   @include media("<medium") {
     background: white;
-  }  
+  }
 
   &.home {
     border-bottom: 0px
@@ -22,7 +22,7 @@
 
     @include media("<medium") {
       width: 90%;
-    }  
+    }
 
     .right-side {
       display: flex;
