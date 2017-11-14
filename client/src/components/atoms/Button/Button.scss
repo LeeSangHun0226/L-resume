@@ -25,7 +25,8 @@
   }
   &:hover {
     background: material-color('blue', 'a700');
-    color: black;
+    color: white;
+    font-weight: 700;
   }
   &:active {
     background: material-color('blue', '600');
