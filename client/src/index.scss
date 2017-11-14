@@ -1,5 +1,6 @@
 @import 'utils';
 @import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
+@import url(https://fonts.googleapis.com/css?family=Tinos:400,700);
 
 html {
   width: 100%;
@@ -8,7 +9,7 @@ html {
 
   @include media("<huge") {
     font-size: 13px;
-  } 
+  }
 
   @include media("<large") {
     font-size: 12.5px;
@@ -20,7 +21,7 @@ html {
 
   @include media("<small") {
     font-size: 11px;
-  } 
+  }
 }
 
 body {

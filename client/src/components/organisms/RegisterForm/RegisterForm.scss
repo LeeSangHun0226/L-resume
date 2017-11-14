@@ -17,6 +17,7 @@
 
     .label {
       width: 20%;
+      font-size: 1.2rem;
 
       @include media("<medium") {
         width: 100%;
