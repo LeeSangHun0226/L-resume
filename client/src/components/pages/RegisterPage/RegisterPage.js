@@ -4,7 +4,7 @@ import PageTemplate from '../../templates/PageTemplate';
 import HeaderContainer from '../../../containers/HeaderContianer';
 import RegisterIndexPage from '../../pages/RegisterIndexPage';
 // import RegisterDetailPage from '../../pages/RegisterDetailPage';
-import RegisterTemplage from '../../templates/RegisterTemplate';
+import RegisterTemplate from '../../templates/RegisterTemplate';
 import ContactContainer from '../../../containers/Register/ContactContainer';
 import AcademicContainer from '../../../containers/Register/AcademicContainer';
 import EducationContainer from '../../../containers/Register/EducationContainer';
@@ -21,14 +21,14 @@ const RegisterPage = ({ authed, match, history }) => {
       // header={<RegisterHeaderContainer />}
     >
       <RegisterIndexPage history={history} />
-      <RegisterTemplage>
+      <RegisterTemplate>
         <Route exact path="/register/contact" component={ContactContainer} />
         <Route exact path="/register/education" component={EducationContainer} />
         <Route exact path="/register/academic" component={AcademicContainer} />
         <Route exact path="/register/extracurricular" component={ExtracurricularContainer} />
         <Route exact path="/register/award" component={AwardContainer} />
         <Route exact path="/register/new" component={ExtraContainer} />
-      </RegisterTemplage>
+      </RegisterTemplate>
       {/* <Route path={`${match.url}`} component={RegisterDetailPage} /> */}
     </PageTemplate>
   );

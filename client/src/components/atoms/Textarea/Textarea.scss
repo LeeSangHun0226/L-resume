@@ -7,6 +7,11 @@
   padding: 0.5rem;
   font-size: 1.25rem;
   transition: color .3s, border-color .3s;
+
+  @include media("<huge") {
+      width: 80%;
+  }
+
   &.full-width {
     width: 100%;
     height: 10rem;

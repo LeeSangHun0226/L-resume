@@ -16,47 +16,85 @@
       // margin-right: 1rem;
     }
 
-    .header-title {
-      font-size: 2rem;  
-      font-weight: 200;
+      .title-wrapper {
+        display: flex;
 
-      @include media("<medium") {
-      margin-bottom: 1rem;
-      // margin-right: 1rem;
-    }
+        @include media("<medium") {
+         margin-bottom: 1rem;
+        }
+
+        .edit-button {
+          background: transparent;
+          border: 0;
+          margin-left: 1rem;
+
+          &:active, :focus, :hover {
+            outline: none;
+          }
+
+          .image {
+            width: 1.5rem;
+            
+            @include media("<medium") {
+              width: 2rem;
+            }
+          }
+        }
+          
+        .header-title {
+          font-size: 2rem;  
+          font-weight: 200;
+
+          @include media("<medium") {
+            font-size: 3rem;
+            // margin-bottom: 1rem;
+              // margin-right: 1rem;
+          }
+        }
+      }
     }
 
     .header-menu {
+      margin-top: auto;
+      margin-bottom: auto;
 
-    }
-}
-
-.nav-wrapper {
-  width: 80%;
-  margin: auto;
-
-  @include media("<medium") {
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
-  .nav {
-    width: calc(100%/5);
-    text-align: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border: 0.5px solid rgb(201, 197, 197);
-    cursor: pointer;
-    background: rgb(255, 255, 255);
-
-    &:hover,:focus {
-      color: rgb(0, 195, 255);
+      @include media("<medium") {
+        font-size: 1.5rem;
+      }
     }
 
-    @include media("<medium") {
-      flex: 2 2 calc(100%/3)
-  }
-  }
-}
+    .nav-wrapper {
+      width: 80%;
+      margin: auto;
+
+      @include media("<medium") {
+        flex-wrap: wrap;
+        width: 100%;
+      }
+
+      .nav {
+        width: calc(100%/5);
+        text-align: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border: 0.5px solid rgb(201, 197, 197);
+        // margin-left: -1px;
+        // border-bottom: 0.5px solid rgb(201, 197, 197);
+        cursor: pointer;
+        background: rgb(255, 255, 255);
+
+        &:hover,:focus {
+          color: rgb(0, 195, 255);
+        }
+
+        &:nth-child(n) {
+          margin: -0.49px;
+        }
+
+        @include media("<medium") {
+          flex: 2 2 calc(100%/3)
+        }
+      }
+    }
 }
 

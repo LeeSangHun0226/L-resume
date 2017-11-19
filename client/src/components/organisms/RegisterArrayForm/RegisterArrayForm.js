@@ -52,6 +52,8 @@ const RegisterArrayForm = ({
     ]
   }
 
+  console.log(labels[location][0].label === 'School Type' ? true : false)
+
   return (
     <div className={cx('registerArrayForm')}>
       {inputData.map((data, index) => (
@@ -61,17 +63,17 @@ const RegisterArrayForm = ({
             <div key={i} className={cx('label-container')}>
               <p className={cx('label')}>{label.label}</p>
               {
-                label.label.indexOf("Description") !== -1
+                label.label.indexOf("Description") !== -1 
                 ?
                   <Textarea
-                    fullWidth
+                    // fullWidth
                     name={label.name}
                     onChange={e => onUpdateArrayInputValue(e, label.name, index)}
                     value={data[label.name] ? data[label.name] : ''}
                   />
                 :
                   <Input
-                    fullWidth
+                    // fullWidth
                     name={label.name}
                     onChange={e => onUpdateArrayInputValue(e, label.name, index)}
                     value={data[label.name] ? data[label.name] : ''}
@@ -82,11 +84,16 @@ const RegisterArrayForm = ({
         }
         </div>
       ))}
-      <div className={cx('button-wrapper')}>
-        <Button roundCorner width={20} onClick={onSubmit}>Save</Button>
-        <Button roundCorner width={20} onClick={onAddBodyForm}>+Add Form</Button>
-        <Button roundCorner width={10} onClick={onAddPhoto}>+Add Photo</Button>
-        <Button roundCorner width={10} onClick={onAddLink}>+Add Link</Button>
+      <div className={cx('save-wrapper')}>
+        <Button className={cx('save-button')} roundCorner width={5} onClick={onSubmit}>Save</Button>
+      </div>
+      <div className={cx('add-wrapper')}>
+      <button className={cx('button')} onClick={onAddBodyForm}>+Add another {location}</button>
+        <div className={cx('photo-link-wrapper')}>
+          <button className={cx('button1')} onClick={onAddPhoto}>+Add Portfolio IMAGE</button>
+          <div className={cx('bar')}/>
+          <button className={cx('button1')} onClick={onAddLink}>+Add Portfolio MEDIA link</button>
+        </div>  
       </div>
       <div>
         {photo.map((data, index) => (

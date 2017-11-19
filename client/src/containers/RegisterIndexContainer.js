@@ -7,6 +7,7 @@ import { fetchServerConfig } from '../config';
 class RegisterIndexContainer extends Component {
 
   state = {
+    loading: false,
     title: '',
     isChangedTitle: false,
     navList: [{
@@ -36,6 +37,7 @@ class RegisterIndexContainer extends Component {
     .then(res => {
       this.setState({
         title: res.data,
+        loading: true,
       })
     });
   }
@@ -91,6 +93,7 @@ class RegisterIndexContainer extends Component {
       title,
       isChangedTitle,
       navList,
+      loading,
     } = this.state;
     const {
       handleChangeTitle,
@@ -98,7 +101,7 @@ class RegisterIndexContainer extends Component {
       handleSubmitTitle,
       handleChangeNavList,
      } = this;
-    return (
+    return !loading ? <h2>loading</h2> : (
       <RegisterIndex
         history={history}
         title={title}

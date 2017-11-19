@@ -6,7 +6,7 @@ exports.oneUserGet = (req, res) => {
 
   User.find({ email }, (err, data) => {
     if (err) console.log(err);
-    res.json(data);
+    return res.json(data);
   });
 };
 

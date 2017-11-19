@@ -5,6 +5,7 @@ import FlexBox from '../../atoms/FlexBox';
 import NavItem from '../../atoms/NavItem';
 import { logout } from '../../../helpers/auth';
 import { pdfServerConfig } from '../../../config';
+import newEditImg from '../../../images/new-edit.svg';
 
 const cx = classNames.bind(styles);
 
@@ -26,12 +27,12 @@ const RegisterIndexNav = ({
         {
           !isChangedTitle
           ?
-            <div>
+            <div className={cx('title-wrapper')}>
               <div className={cx('header-title')}>
                 {title}
               </div>
-              <button onClick={onChangeTitle}>
-                변경
+              <button className={cx('edit-button')} onClick={onChangeTitle}>
+                <img className={cx('image')} src={newEditImg} alt="new-edit" />
               </button>  
             </div>
           :

@@ -1,6 +1,6 @@
 const fetchServerConfig = {
-  ip: 'localhost',
-  // ip: '13.125.28.71',
+  // ip: 'localhost',
+  ip: '13.125.28.71',
 };
 
 const pdfServerConfig = {
