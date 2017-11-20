@@ -24,13 +24,10 @@ const Home = ({
       <div className={cx('home-background')}>
         <div className={cx('home-content-wrapper')}>
           <h2 className={cx('home-title')}>
-            : Rusume builder
+            Resume Builder
           </h2>
           <p className={cx('home-sub-title')}>
-            Lprep에서 운영하는 입시용 Resume builder입니다. 
-          </p>
-          <p className={cx('home-sub-title')}>
-            본인의 resume를 편하게 작성 해보세요.
+            Build your own resume with the click of a button.
           </p>
           <SignUpContainer history={history} />
         </div>
@@ -39,30 +36,30 @@ const Home = ({
         <div className={cx('middle-box')}>
           <div className={cx('middle-content-wrapper')}>
             <p className={cx('middle-content-title')}>
-              생활기록
+              Extracurricular Activities
             </p>
             <p className={cx('middle-content-sub-title')}>
-              Be in control of your informaition by setting policies in real-time knowing your personal or company
+              A place where you can keep a record of all the activities you have been a part of.
             </p>
           </div>
         </div>
         <div className={cx('middle-box')}>
           <div className={cx('middle-content-wrapper')}>
             <p className={cx('middle-content-title')}>
-              워드작업 NO
+              File sharing
             </p>
             <p className={cx('middle-content-sub-title')}>
-              It's simple, fast and easy to use. You can share your files through our mobile apps, web app
+              It’s simple, fast and easy to use. You can share your files through our mobile app and our website.
             </p>
           </div>
         </div>
         <div className={cx('middle-box')}>
           <div className={cx('middle-content-wrapper')}>
             <p className={cx('middle-content-title')}>
-              공유하기
+              Cloud
             </p>
             <p className={cx('middle-content-sub-title')}>
-              Your business can keep running the way you are used to.
+              You can share your resume online, any time you want. Share your resume securely via kakaotalk email, the cloud, or other storage platforms such as Dropbox.
             </p>
           </div>
         </div>
@@ -72,44 +69,44 @@ const Home = ({
               PDF/Word/JPG
             </p>
             <p className={cx('middle-content-sub-title')}>
-              Only the recipeints who you have granted access to, will be able to view or edit these files
+              You can select the file type of your choice.
             </p>
           </div>
         </div>
         <div className={cx('middle-box')}>
           <div className={cx('middle-content-wrapper')}>
             <p className={cx('middle-content-title')}>
-              언제든지 수정 가능
+              Editing
             </p>
             <p className={cx('middle-content-sub-title')}>
-              You can Edit your files through the Quiver web app. Share securely via email, the cloud, or stroage platfroms like Box and Dropbox
+              You can always edit your portfolio.
             </p>
           </div>
         </div>
         <div className={cx('middle-box')}>
           <div className={cx('middle-content-wrapper')}>
             <p className={cx('middle-content-title')}>
-              모바일 작업 가능
+              Security
             </p>
             <p className={cx('middle-content-sub-title')}>
-              Every picture, video, document is protected at file level, embedded with our security features.
+              All pictures, videos, and documents are protected individually with our security features.
             </p>
           </div>
-        </div>      
+        </div>
       </div>
       <div className={cx('last-wrapper')}>
         <img src={notebookSVG} alt="notebookSVG" className={cx('last-logo')}/>
         <p className={cx('last-title')}>
-          지금 바로 시작해 보세요
+          Start right now!
         </p>
         <p className={cx('last-sub-title')}>
-          1주일에 10분만 투자하면 1년만에 자신의 이력서가 만들어 집니다.
+          If you invest 10 minutes a week, your resume will be created within a year.
         </p>
         <p className={cx('last-sub-title')}>
-          내용만 채워보세요
+          Just fill in the blanks.
         </p>
         <div className={cx('button')}>
-          <Button roundCorner blue onClick={() => window.scroll(0, 0)}>무료로 시작</Button>
+          <Button roundCorner blue onClick={() => window.scroll(0, 0)}>Start</Button>
         </div>
       </div>
     </div>
