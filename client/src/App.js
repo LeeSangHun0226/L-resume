@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import axios from 'axios';
 
 import LoginPage from './components/pages/LoginPage';
 import SignUpPage from './components/pages/SignUpPage';
@@ -13,6 +14,7 @@ import { logout } from './helpers/auth';
 import { firebaseAuth } from './firebase';
 import store from './store';
 import './App.scss';
+import { fetchServerConfig } from './config';
 
 const PrivateRoute = ({ component: Component, authed, ...rest }) => (
   <Route 
@@ -55,19 +57,31 @@ class App extends Component {
   }
 
   componentDidMount() {
-   firebaseAuth().onAuthStateChanged((user) => {
-      if (user) {
-        this.setState({
-          authed: true,
-          loading: false,
-        })
-      } else {
-        this.setState({
-          authed: false,
-          loading: false,
-        })
-      }
-    })
+
+    firebaseAuth().onAuthStateChanged((user) => {
+        if (user) {
+          console.log(typeof user.uid)
+          const email = user.email;
+          axios.get(`http://${fetchServerConfig.ip}:4000/api/user/${email}`)
+            .then(res => {
+              console.log(res)
+              localStorage.setItem('userId', res.data._id);
+            })
+            .then(() => {
+              this.setState({
+                authed: true,
+                loading: false,
+              })
+            })
+            .catch(err => console.log(err))
+        } else {
+          localStorage.removeItem('userId');
+          this.setState({
+            authed: false,
+            loading: false,
+          })
+        }
+      })
   }
 
   componentWillUnmount() {

@@ -57,29 +57,31 @@ class SignUpContainer extends Component {
   handleSignUp = (e) => {
     const { email, password } = this.props.userAuthForms;
     const { userSetError } = this.props;
-    auth(email, password)
-    .then(() => {
       axios.post(`http://${fetchServerConfig.ip}:4000/api/user`, {
         email,
         password,
       })
-      .then((res) => {
-        localStorage.setItem('userId', res.data._id)
-        this.props.history.push({
-          pathname: `/register/contact`,
+        .then((res) => {
+          localStorage.setItem('userId', res.data._id);
+
+          auth(res.data.email, res.data.password)
+            .then(() => {
+              return this.props.history.push({
+                pathname: `/register/contact`,
+              })
+            })
+            .catch(err => {
+              this.setState(
+                setErrorMessage(err)
+              )
+              const error = {
+                signUp: this.state.signUpError
+              }
+              userSetError(error)
+            })
+          
         })
-      })
-      .catch(err => console.log(err))
-    })
-    .catch(err => {
-      this.setState(
-      setErrorMessage(err)
-    )
-    const error = {
-      signup: this.state.signUpError,
-    }
-    userSetError(error)
-    })
+        .catch(err => console.log(err))
     e.preventDefault();
   }
 

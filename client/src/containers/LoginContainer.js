@@ -57,11 +57,6 @@ class LoginContainer extends Component {
     const { email, password } = this.props.authForms;
     const { authSetError } =this.props;
     login(email, password)
-      .then(() => {
-        axios.get(`http://${fetchServerConfig.ip}:4000/api/user/${email}`)
-        .then(res => localStorage.setItem('userId', res.data[0]._id ))
-        .catch(err => console.log(err))
-      })
       .catch(err => {
         this.setState(
           setErrorMessage('Invalid username/password')

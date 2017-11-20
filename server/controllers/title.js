@@ -4,6 +4,7 @@ exports.titleGet = (req, res) => {
   const { userId } = req.params;
 
   Register.findOne({ userId }, (err, data) => {
+    
     if (err) res.send({ err });
     const sendData = data.title;
     return res.json(sendData);

@@ -3,9 +3,11 @@ const Register = require('../models/register');
 
 exports.oneUserGet = (req, res) => {
   const { email } = req.params;
+  
 
-  User.find({ email }, (err, data) => {
-    if (err) console.log(err);
+  User.findOne({ email }, (err, data) => {
+
+    if (err) res.send(err);
     return res.json(data);
   });
 };
@@ -22,7 +24,8 @@ exports.saveUser = (req, res) => {
   return user.save()
     .then((data) => {
       userId = data._id;
-      res.json(data);
+      
+      return res.json(data);
     })
     .then(() => {
       const register = new Register({

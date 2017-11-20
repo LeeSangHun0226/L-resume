@@ -19,7 +19,11 @@ const HeaderNav = ({ authed, location }) => {
         <NavItem
           location={location}
           to="/" 
-          onClick={() => logout()}>
+          onClick={() => {
+            logout()
+            localStorage.setItem('isLogedIn', false);
+          }
+          }>
             LOG OUT
         </NavItem>
       :
