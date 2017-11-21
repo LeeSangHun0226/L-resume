@@ -14,6 +14,7 @@ class EducationContainer extends Component {
       schoolName: '',
       startDate: '',
       endDate: '',
+      description: '',
       index: 0,
     }],
     photo: [],
@@ -54,6 +55,7 @@ class EducationContainer extends Component {
       schoolName: '',
       startDate: '',
       endDate: '',
+      description: '',
       index: this.state.body.length,
     }
 

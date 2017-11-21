@@ -8,6 +8,7 @@
   padding: 1.5rem;
   font-size: 1.25rem;
   transition: color .3s, border-color .3s;
+  width: 100%;
 
   @include media("<huge") {
     width: 80%;

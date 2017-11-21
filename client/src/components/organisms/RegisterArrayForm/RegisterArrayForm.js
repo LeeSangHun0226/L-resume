@@ -33,6 +33,7 @@ const RegisterArrayForm = ({
       { label: 'School Name', name: 'schoolName' }, 
       { label: 'Start Date', name: 'startDate' }, 
       { label: 'End Date', name: 'endDate' },
+      { label: 'Description', name: 'description' },
     ],
     extracurricular: [
       { label: 'Position', name: 'position' }, 
@@ -40,7 +41,7 @@ const RegisterArrayForm = ({
       { label: 'City', name: 'city' },
       { label: 'Country', name: 'country' },
       { label: 'Start Date', name: 'startDate' },
-      { label: 'End Date', name: 'end Date' }, 
+      { label: 'End Date', name: 'endDate' }, 
       { label: 'Description', name: 'description' }
     ],
     award: [

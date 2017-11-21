@@ -57,6 +57,11 @@
     .header-menu {
       margin-top: auto;
       margin-bottom: auto;
+      cursor: pointer;
+
+      &:hover {
+        color: material-color('blue', 'a700');;
+      }
 
       @include media("<medium") {
         font-size: 1.5rem;

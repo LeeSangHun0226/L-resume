@@ -60,11 +60,9 @@ class App extends Component {
 
     firebaseAuth().onAuthStateChanged((user) => {
         if (user) {
-          console.log(typeof user.uid)
           const email = user.email;
           axios.get(`http://${fetchServerConfig.ip}:4000/api/user/${email}`)
             .then(res => {
-              console.log(res)
               localStorage.setItem('userId', res.data._id);
             })
             .then(() => {
@@ -84,6 +82,46 @@ class App extends Component {
       })
   }
 
+  channelIo = () => {
+    function a () {
+      if (window.CHPlugin) {
+        return window.console && console.error && console.error('Channel Plugin script included twice.');
+      }
+      var ch = { q: [] };
+      ['initialize', 'checkIn', 'checkOut', 'show', 'hide', 'track', 'timeTrack'].forEach(function (e) {
+        ch[e] = function () {
+          var n = Array.prototype.slice.call(arguments);
+          n.unshift(e);
+          ch.q.push(n);
+        }
+      });
+      window.CHPlugin = ch;
+      var node = document.createElement('div');
+      node.id = 'ch-plugin';
+      document.body.appendChild(node);
+      var async_load = function () {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = '//cdn.channel.io/plugin/ch-plugin-web.js';
+        s.charset = 'UTF-8';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      };
+      if (window.attachEvent) {
+        window.attachEvent('onload', async_load);
+      } else {
+        window.addEventListener('load', async_load, false);
+      }
+    }
+    a();
+    window.CHPlugin.initialize({
+      plugin_id: '202ca41e-9a61-44f6-9a0e-deedc6422833',
+      hide_default_launcher: false
+    });
+  }
+
+
   componentWillUnmount() {
     this.removeListner();
   }
@@ -98,7 +136,7 @@ class App extends Component {
               <Route exact path="/" authed={this.state.authed} component={HomePage} />
               <PublicRoute authed={this.state.authed} path="/login" component={LoginPage} />
               <PublicRoute authed={this.state.authed} path="/signup" component={SignUpPage} />
-              <PdfRoute authed={this.state.authed} path="/pdf/:userId" component={PdfPage} />
+              <PdfRoute exact path="/pdf/:userId" component={PdfPage} />
               <PrivateRoute authed={this.state.authed} path="/register" component={RegisterPage} />
               <Route render={() => <h3>404 Not Found</h3> } />
             </Switch>
