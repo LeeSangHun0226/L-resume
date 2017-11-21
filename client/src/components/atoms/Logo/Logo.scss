@@ -4,12 +4,17 @@
   font-size: 2rem;
   font-weight: 600;
   color: black;
+  // margin-bottom: 2rem;
   user-select: none;
   cursor: pointer;
 
   @include media("<medium") {
     // font-size: 1.5rem;
   }  
+
+  .img {
+    width: 100%;
+  }
 
   &.home {
     color: white;

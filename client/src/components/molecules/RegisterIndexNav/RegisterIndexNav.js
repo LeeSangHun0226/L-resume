@@ -66,12 +66,6 @@ const RegisterIndexNav = ({
             </NavItem>
           ))
         }
-        <NavItem
-          className={cx('nav')}
-          onClick={onChangeNavList}
-        >
-          Add New +
-        </NavItem>
       </FlexBox>
     </FlexBox>
   );
