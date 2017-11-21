@@ -13,11 +13,13 @@
 
     @include media("<medium") {
       flex-direction: column;
+      padding: 0;
+      margin: 2rem;      
     }
 
     .label {
       width: 20%;
-      font-size: 1.2rem;
+      // font-size: 1.2rem;
 
       @include media("<medium") {
         width: 100%;
@@ -26,8 +28,15 @@
   }
 
   .button-wrapper {
-    padding-bottom: 1rem;
-    margin: auto;
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+
+    .button {
+      margin: auto;
+      justify-content: center;
+    }
   }
   // background: material-color('teal', '600');
 

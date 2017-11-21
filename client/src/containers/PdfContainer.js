@@ -33,10 +33,6 @@ class PdfContainer extends Component {
     const userId = localStorage.getItem('userId');
     return this.state.loading === true ? <h1>Loading</h1> : (
       <div>
-        <button onClick={() => {
-          window.print();
-        }}
-        >open pdf</button>
         <Pdf data={this.state.data} />
       </div>
     )

@@ -24,14 +24,14 @@ const RegisterForm = ({
               data.label === 'description' 
               ?
                 <Textarea
-                  fullWidth
+                  // fullWidth
                   name={data.label}
                   onChange={e => onUpdateValue(e, data.name)}
                   value={data.value ? data.value : ''}
                 />
               :
                 <Input
-                  fullWidth
+                  // fullWidth
                   name={data.label}
                   onChange={e => onUpdateValue(e, data.name)}
                   value={data.value ? data.value : ''}
@@ -40,7 +40,7 @@ const RegisterForm = ({
           </div>
       )})}
       <div className={cx('button-wrapper')}>
-        <Button roundCorner width={20} onClick={onSubmit}>Save</Button>
+        <Button className={cx('button')} roundCorner width={20} onClick={onSubmit}>Save</Button>
       </div>
     </div>
   );

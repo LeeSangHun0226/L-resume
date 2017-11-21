@@ -7,7 +7,7 @@
     width: 80%;
     margin: auto;
 
-    @include media("<small") {
+    @include media("<medium") {
       width: 100%;
     }
   }
