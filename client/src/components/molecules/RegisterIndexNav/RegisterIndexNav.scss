@@ -88,6 +88,10 @@
         cursor: pointer;
         background: rgb(255, 255, 255);
 
+        &.active {
+          color: rgb(0, 195, 255);
+        }
+
         &:hover,:focus {
           color: rgb(0, 195, 255);
         }

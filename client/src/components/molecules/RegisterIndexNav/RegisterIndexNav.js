@@ -18,6 +18,7 @@ const RegisterIndexNav = ({
   onSubmitTitle,
   onChangeNavList,
   navList,
+  onNavClick,
 }) => {
   const navLocation = 'registerIndex';
   const id = localStorage.getItem('userId');
@@ -54,17 +55,24 @@ const RegisterIndexNav = ({
       </FlexBox>
       <FlexBox row space className={cx('nav-wrapper')}>
         {
-          navList.map((nav, i) => (
-            <NavItem
-              key={i}
-              className={cx('nav')}
-              onClick={() => history.push({
-                pathname: nav.path
-              })}
-            >
-              {nav.name}
-            </NavItem>
-          ))
+          navList.map((nav, i) => {
+            const active = nav.active;
+            
+            return (
+              <NavItem
+                key={i}
+                className={cx('nav', { active })}
+                onClick={() => {
+                  onNavClick(i);
+                  history.push({
+                    pathname: nav.path
+                  })
+                }}
+              >
+                {nav.name}
+              </NavItem>
+            )}
+          )
         }
       </FlexBox>
     </FlexBox>

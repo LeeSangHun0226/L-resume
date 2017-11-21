@@ -17,7 +17,7 @@ const Header = ({
     <div className={cx('header', location )}>
       <div className={cx('responsive')}>
         <div className={cx('logo-wrapper')}>
-          <Logo location={location} />
+          <Logo location={location} authed={authed}/>
         </div>
         <div>
           <HeaderNav authed={authed} location={location}/>

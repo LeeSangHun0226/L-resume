@@ -19,6 +19,7 @@ const Home = ({
   backgroundColor,
   history
 }) => {
+
   return (
     <div className={cx('home', { backgroundColor })}>
       <div className={cx('home-background')}>

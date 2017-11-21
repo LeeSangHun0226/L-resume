@@ -10,24 +10,33 @@ class RegisterIndexContainer extends Component {
     loading: false,
     title: '',
     isChangedTitle: false,
+    currentIndex: -1,
+    previousIndex: -1,
+    isFirstActived: false,
     navList: [{
       path: 'contact',
       name: 'Contact info',
+      active: true,
     }, {
       path: 'education',
       name: 'Education',
+      active: false,
     }, {
       path: 'academic',
-      name: 'Academic Achievements'
+      name: 'Academic Achievements',
+      active: false,
     }, {
       path: 'extracurricular',
-      name: 'Extracurricular Activities'
+      name: 'Extracurricular Activities',
+      active: false,
     }, {
       path: 'award',
-      name: 'Awards & Recognitions'
+      name: 'Awards & Recognitions',
+      active: false,
     }, {
       path: 'new',
       name: 'Add New +',
+      active: false,
     }]
   }
 
@@ -65,6 +74,61 @@ class RegisterIndexContainer extends Component {
     .then(res => console.log(res))
   }
 
+  handleNavClick = (index) => {
+    const initIndex = 0;
+    if (!this.state.isFirstActived && index !== 0) {
+      return this.setState({
+        previousIndex: 0,
+        currentIndex: index,
+        isFirstActived: true,
+        navList: update(
+          this.state.navList,
+          {
+            [initIndex]: {
+              active: {
+                $set: false,
+              }
+            },
+            [index]: {
+              active: {
+                $set: true,
+              }
+            }
+          }
+        )
+      })
+    }
+
+    if (!this.state.isFirstActived && index === 0 ) {
+      return this.setState({
+        previousIndex: 0,
+        currentIndex: index,
+        isFirstActived: true,
+      })
+    };
+
+    return this.setState({
+      previousIndex: this.state.currentIndex,
+      currentIndex: index,
+      navList: update(
+        this.state.navList,
+        {
+          [this.state.currentIndex]: {
+            active: {
+              $set: false,
+            }
+          },
+          [index]: {
+            active: {
+              $set: true,
+            }
+          }
+        }
+      )
+    })
+
+  }
+
   handleChangeNavList = () => {
     const userId = localStorage.getItem('userId');
     const navName = prompt('add new section');
@@ -88,6 +152,7 @@ class RegisterIndexContainer extends Component {
   }
 
   render() {
+
     const { history } = this.props;
     const { 
       title,
@@ -100,6 +165,7 @@ class RegisterIndexContainer extends Component {
       handleUpdateTitle,
       handleSubmitTitle,
       handleChangeNavList,
+      handleNavClick,
      } = this;
     return !loading ? <h2>loading</h2> : (
       <RegisterIndex
@@ -111,6 +177,7 @@ class RegisterIndexContainer extends Component {
         isChangedTitle={isChangedTitle}
         onChangeNavList={handleChangeNavList}
         navList={navList}
+        onNavClick={handleNavClick}
       />
     );
   }
