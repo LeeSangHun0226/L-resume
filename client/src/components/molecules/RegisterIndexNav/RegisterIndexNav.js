@@ -52,7 +52,7 @@ const RegisterIndexNav = ({
       const x = window.open();
       x.document.open();
       x.document.write(iframe);
-      x.document.close();
+      // x.document.close();
       }}>
           download
         </NavItem>
