@@ -48,12 +48,12 @@ const RegisterIndexNav = ({
           history.push({
           pathname: `/pdf/${id}`,
         })
-          // const iframe = `<iframe width='100%' height='100%' src='${pdfServerConfig.url}/api/render?url=http://swindow.naver.com/style/style/list?query=11005003'></iframe>`
-          // const x = window.open();
-          // x.document.open();
-          // x.document.write(iframe);
-          // x.document.close();
-          }}>
+      const iframe = `<iframe width='100%' height='100%' src='${pdfServerConfig.url}/api/render?url=http://13.125.28.71:3000/pdf/${id}'></iframe>`
+      const x = window.open();
+      x.document.open();
+      x.document.write(iframe);
+      x.document.close();
+      }}>
           download
         </NavItem>
       </FlexBox>
