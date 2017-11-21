@@ -127,7 +127,8 @@ class App extends Component {
   }
 
   render() {
-    return this.state.loading === true ? <h1>Loading</h1> : (
+    // return this.state.loading === true ? <h1>Loading</h1> : (
+      return (
       <Provider store={store}>
         <Router>
           <div style={{ height: '100%' }}>
