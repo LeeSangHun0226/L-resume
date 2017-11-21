@@ -20,7 +20,8 @@ const RegisterIndexNav = ({
   navList,
 }) => {
   const navLocation = 'registerIndex';
-
+  const id = localStorage.getItem('userId');
+  const pdflink = `${pdfServerConfig.url}/api/render?url=http://13.125.28.71:3000/pdf/${id}`
   return (
     <FlexBox column className={cx('registerIndex')}>
       <FlexBox space className={cx('header-wrapper')}>
@@ -44,17 +45,11 @@ const RegisterIndexNav = ({
         <NavItem
           className={cx('header-menu')}
           onClick={() => {
-          const id = localStorage.getItem('userId');
           history.push({
           pathname: `/pdf/${id}`,
         })
-      const iframe = `<iframe width='100%' height='100%' src='${pdfServerConfig.url}/api/render?url=http://13.125.28.71:3000/pdf/${id}'></iframe>`
-      const x = window.open();
-      x.document.open();
-      x.document.write(iframe);
-      // x.document.close();
       }}>
-          download
+          <a href={pdflink}>download</a>
         </NavItem>
       </FlexBox>
       <FlexBox row space className={cx('nav-wrapper')}>
