@@ -36,6 +36,8 @@ module.exports = function (app) {
   linkRoutes.post('/extracurricular/modify/:email', linkController.modifyExtracurricularLink);
   linkRoutes.post('/award/:email', linkController.saveAwardLink);
   linkRoutes.post('/award/modify/:email', linkController.modifyAwardLink);
+  linkRoutes.post('/extra/:email', linkController.saveExtraLink);
+  linkRoutes.post('/extra/modify/:email', linkController.modifyExtraLink);
 
   // apiRoutes.use('/pdf', pdfRoutes);
   // pdfRoutes.post('/', PdfController.savePdf);
@@ -49,6 +51,8 @@ module.exports = function (app) {
   photoRoutes.post('/extracurricular/modify/:email', photoController.modifyExtracurricularPhoto);
   photoRoutes.post('/award/:email', photoController.saveAwardPhoto);
   photoRoutes.post('/award/modify/:email', photoController.modifyAwardPhoto);
+  photoRoutes.post('/extra/:email', photoController.saveExtraPhoto);
+  photoRoutes.post('/extra/modify/:email', photoController.modifyExtraPhoto);
 
   apiRoutes.use('/user', userRoutes);
 

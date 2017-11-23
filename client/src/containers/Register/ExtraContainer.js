@@ -38,7 +38,7 @@ class ExtraContainer extends Component {
     const { photo, link } = this.state;
     const email = localStorage.getItem('email')
     axios.post(`http://${fetchServerConfig.ip}:4000/api/register/extra/${email}`, {
-      academic: this.state.body,
+      extra: this.state.body,
       photo,
       link,
     })

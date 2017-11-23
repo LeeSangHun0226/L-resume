@@ -71,3 +71,21 @@ exports.modifyAwardLink = (req, res) => {
     res.send({ update: 'success' });
   });
 }
+
+exports.saveExtraLink = (req, res) => {
+  const { email } = req.params;
+  const { data } = req.body;
+  Register.update({ email }, { $set: { 'extra.link': data } }, (err) => {
+    if (err) res.send({ err });
+    res.send({ update: 'success' });
+  });
+};
+
+exports.modifyExtraLink = (req, res) => {
+  const { email } = req.params;
+  const { data } = req.body;
+  Register.update({ email }, { $set: { 'extra.link': data } }, (err) => {
+    if (err) res.send({ err });
+    res.send({ update: 'success' });
+  });
+};

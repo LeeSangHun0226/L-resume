@@ -187,3 +187,48 @@ exports.modifyAwardPhoto = (req, res) => {
   });
 }
 
+exports.saveExtraPhoto = (upload.single('file'), (req, res) => {
+  const { email } = req.params;
+  const index = req.body.photo.index;
+  const filename = req.body.photo.filename;
+  const Bucket = 'l-resume';
+  const userKey = `${email}/extra/${index}.png`;
+
+  const buf = new Buffer(req.body.photo.data_uri.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+
+  const params = {
+    Bucket,
+    Key: userKey,
+    ACL: 'public-read',
+    Body: buf,
+  };
+
+  s3.upload(params, (err, data) => {
+    if (err) throw err;
+
+    Register.update({ email },
+      {
+        $push: {
+          'extra.photo': {
+            data_uri: data.Location,
+            photoFlag: true,
+            filename,
+          }
+        }
+      }, (err1) => {
+        if (err1) throw err;
+        res.send({ update: 'success' });
+      });
+  });
+});
+
+exports.modifyExtraPhoto = (req, res) => {
+  const { email } = req.params;
+  const { data } = req.body;
+
+  Register.update({ email }, { $set: { 'extra.photo': data } }, (err) => {
+    if (err) res.send({ err });
+    res.send({ update: 'success' });
+  });
+};
+
