@@ -1,11 +1,7 @@
 const multer = require('multer');
 const AWS = require('aws-sdk');
 
-AWS.config = {
-  accessKeyId: 'AKIAJ5QDWOC6OW4BMPXA',
-  secretAccessKey: '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',
-  region: 'ap-northeast-2',
-};
+AWS.config.region = 'ap-northeast-2';
 
 const Register = require('../models/register');
 
