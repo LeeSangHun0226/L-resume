@@ -13,6 +13,7 @@ const SignUp = ({
   error,
   onChangeInput,
   onSignUp,
+  signUpError,
 }) => {
 
   const {
@@ -23,9 +24,10 @@ const SignUp = ({
   const {
     email: emailError,
     password: passwordError,
-    signup: signUpError,
+    // signup: signUpError,
   } = error ? error : {};
 
+  console.log(signUpError)
   return (
     <div className={cx('signUp-container')}>
         <div className={cx('content')}>

@@ -8,6 +8,7 @@ import { logout } from '../../../helpers/auth';
 const cx = classNames.bind(styles);
 
 const HeaderNav = ({ authed, location }) => {
+  console.log(authed);
   return (
     <FlexBox
       row

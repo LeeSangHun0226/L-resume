@@ -43,6 +43,16 @@ const PublicRoute = ({ component: Component, authed, ...rest }) => (
   />
 )
 
+const HomeRoute = ({ component: Component, authed, ...rest }) => (
+  <Route
+    { ...rest }
+    render={props => authed === false
+      ? <Component { ...props } />
+      : <Redirect to='/register/contact' />
+    }
+  />
+)
+
 const PdfRoute = ({ component: Component, authed, ...rest }) => (
   <Route
     { ...rest }
@@ -60,36 +70,21 @@ class App extends Component {
 
   componentDidMount() {
     firebaseAuth().onAuthStateChanged((user) => {
-        if (user) {
-          const email = user.email;
-          // return axios.get(`http://${fetchServerConfig.ip}:4000/api/user/${email}`)
-            // .then(res => {
-              // console.log('111')
-              // console.lo
-              console.log('??')
-              localStorage.setItem('email', email);
-            // })
-            // .then(() => {
-              // console.log('...')
-              
-                
-                this.setState({
-                    authed: true,
-                    loading: false,
-                  })
-
-                // window.location.replace(`http://${fetchServerConfig.ip}:3000/register/contact`)
-              
-            // })
-            // .catch(err => console.log(err))
-        } else {
-          localStorage.removeItem('email');
-          this.setState({
-            authed: false,
-            loading: false,
-          })
-        }
-      })
+      if (user) {
+        const email = user.email;
+        localStorage.setItem('email', email);
+        this.setState({
+          authed: true,
+          loading: false,
+        });
+      } else {
+        localStorage.removeItem('email');
+        this.setState({
+          authed: false,
+          loading: false,
+        })
+      }
+    })
   }
 
   componentWillUnmount() {
@@ -97,6 +92,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.authed)
     return this.state.loading === true ? <h1>Loading</h1> : (
       // return (
       <Provider store={store}>
@@ -104,7 +100,7 @@ class App extends Component {
           <div style={{ height: '100%' }}>
             {/*<Header authed={this.state.authed} />*/}
             <Switch>
-              <PublicRoute exact path="/" authed={this.state.authed} component={HomePage} />
+              <HomeRoute exact path="/" authed={this.state.authed} component={HomePage} />
               <PublicRoute authed={this.state.authed} path="/login" component={LoginPage} />
               <PublicRoute authed={this.state.authed} path="/signup" component={SignUpPage} />
               <PrivateRoute authed={this.state.authed} path="/register" component={RegisterPage} />

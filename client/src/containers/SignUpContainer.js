@@ -69,6 +69,7 @@ class SignUpContainer extends Component {
         // localStorage.setItem('userId', res.data._id);
         // console.log('signup setitem')
         .then(() => {
+          
           auth(email, password)
             .catch(err => {
               this.setState(
@@ -86,6 +87,7 @@ class SignUpContainer extends Component {
 
   render() {
     const { userAuthForms, userError } = this.props;
+    const { signUpError } = this.state;
     const {
       handleChangeInput, 
       handleSignUp,
@@ -96,6 +98,7 @@ class SignUpContainer extends Component {
         <SignUp
           form={userAuthForms}
           error={userError}
+          signUpError={signUpError}
           onSignUp={handleSignUp}
           onChangeInput={handleChangeInput}
         />
