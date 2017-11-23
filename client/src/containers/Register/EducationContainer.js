@@ -22,8 +22,8 @@ class EducationContainer extends Component {
   }
 
   componentDidMount() {
-    const userId = localStorage.getItem('userId');
-    axios.get(`http://${fetchServerConfig.ip}:4000/api/register/education/${userId}`)
+    const email = localStorage.getItem('email');
+    axios.get(`http://${fetchServerConfig.ip}:4000/api/register/education/${email}`)
       .then(res => {
         console.log(res)
         const { body, photo, link } = res.data;
@@ -38,8 +38,8 @@ class EducationContainer extends Component {
 
   handleSubmit = (event) => {
     const { photo, link } = this.state;
-    const userId = localStorage.getItem('userId')
-    axios.post(`http://${fetchServerConfig.ip}:4000/api/register/education/${userId}`, {
+    const email = localStorage.getItem('email')
+    axios.post(`http://${fetchServerConfig.ip}:4000/api/register/education/${email}`, {
       education: this.state.body,
       photo,
       link,
@@ -170,14 +170,14 @@ class EducationContainer extends Component {
       index: this.state.photo[photoIndex].index,
     }
 
-    const userId = localStorage.getItem('userId')
+    const email = localStorage.getItem('email')
 
     axios({
       method: 'post',
-      url: `http://${fetchServerConfig.ip}:4000/api/photo/education/${userId}`,
+      url: `http://${fetchServerConfig.ip}:4000/api/photo/education/${email}`,
       data: {
         photo,
-        userId,
+        email,
       },
       dataType: 'json',
     })
@@ -196,7 +196,7 @@ class EducationContainer extends Component {
   }
 
   handleSubmitLink = (e, index) => {
-    const userId = localStorage.getItem('userId');
+    const email = localStorage.getItem('email');
     this.setState({
       link: update(
         this.state.link,
@@ -207,7 +207,7 @@ class EducationContainer extends Component {
         }
       )
     }, () => {
-      axios.post(`http://${fetchServerConfig.ip}:4000/api/link/education/${userId}`, {
+      axios.post(`http://${fetchServerConfig.ip}:4000/api/link/education/${email}`, {
         data: this.state.link,
       })
         .then(res => console.log(res))
@@ -216,7 +216,7 @@ class EducationContainer extends Component {
   }
 
   handleDeletePhoto = (e, index) => {
-    const userId = localStorage.getItem('userId');
+    const email = localStorage.getItem('email');
     this.setState(prevState => ({
       photo: update(
         prevState.photo, {
@@ -224,7 +224,7 @@ class EducationContainer extends Component {
         }
       )
     }), () => {
-      axios.post(`http://${fetchServerConfig.ip}:4000/api/photo/education/modify/${userId}`, {
+      axios.post(`http://${fetchServerConfig.ip}:4000/api/photo/education/modify/${email}`, {
         data: this.state.photo,
       })
         .then(res => console.log(res))
@@ -233,7 +233,7 @@ class EducationContainer extends Component {
   }
 
   handleDeleteLink = (e, index) => {
-    const userId = localStorage.getItem('userId');
+    const email = localStorage.getItem('email');
     this.setState(prevState => ({
       link: update(
         prevState.link, {
@@ -241,7 +241,7 @@ class EducationContainer extends Component {
         }
       )
     }), () => {
-      axios.post(`http://${fetchServerConfig.ip}:4000/api/link/education/modify/${userId}`, {
+      axios.post(`http://${fetchServerConfig.ip}:4000/api/link/education/modify/${email}`, {
         data: this.state.link,
       })
         .then(res => console.log(res))

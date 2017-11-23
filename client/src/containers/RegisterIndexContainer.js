@@ -41,8 +41,8 @@ class RegisterIndexContainer extends Component {
   }
 
   componentDidMount() {
-    const userId = localStorage.getItem('userId');
-    axios.get(`http://${fetchServerConfig.ip}:4000/api/title/${userId}`)
+    const email = localStorage.getItem('email');
+    axios.get(`http://${fetchServerConfig.ip}:4000/api/title/${email}`)
     .then(res => {
       this.setState({
         title: res.data,
@@ -64,11 +64,11 @@ class RegisterIndexContainer extends Component {
   }
 
   handleSubmitTitle = () => {
-    const userId = localStorage.getItem('userId');
+    const email = localStorage.getItem('email');
     this.setState({
       isChangedTitle: false,
     })
-    axios.post(`http://${fetchServerConfig.ip}:4000/api/title/${userId}`, {
+    axios.post(`http://${fetchServerConfig.ip}:4000/api/title/${email}`, {
       data: this.state.title,
     })
     .then(res => console.log(res))
@@ -130,14 +130,14 @@ class RegisterIndexContainer extends Component {
   }
 
   handleChangeNavList = () => {
-    const userId = localStorage.getItem('userId');
+    const email = localStorage.getItem('email');
     const navName = prompt('add new section');
 
     const newNav = {
       path: `new/${navName}`,
       name: navName,
     }
-    axios.post(`http://${fetchServerConfig.ip}:4000/api/title/nav/${userId}`, {
+    axios.post(`http://${fetchServerConfig.ip}:4000/api/title/nav/${email}`, {
       navName,
     })
     .then(res => console.log(res))

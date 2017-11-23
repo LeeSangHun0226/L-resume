@@ -13,8 +13,8 @@ class ContactContainer extends Component {
   }
 
   componentDidMount() {
-    const userId = localStorage.getItem('userId');
-    axios.get(`http://${fetchServerConfig.ip}:4000/api/register/contact/${userId}`)
+    const email = localStorage.getItem('email');
+    axios.get(`http://${fetchServerConfig.ip}:4000/api/register/contact/${email}`)
     .then(res => {
       const { firstName, lastName, address, phone, email } = res.data;
       this.setState({
@@ -31,9 +31,9 @@ class ContactContainer extends Component {
   }
 
   handleSubmit = (event) => {
-    const userId = localStorage.getItem('userId');
+    const email = localStorage.getItem('email');
     const contact = this.state;
-    axios.post(`http://${fetchServerConfig.ip}:4000/api/register/contact/${userId}`, {
+    axios.post(`http://${fetchServerConfig.ip}:4000/api/register/contact/${email}`, {
       contact,      
     })
       .then(res => alert('저장되었습니다'))

@@ -4,9 +4,9 @@ const Register = require('../models/register');
 // allRegisterGet, oneRegisterGet, saveRegister
 
 exports.oneRegisterGet = (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
 
-  Register.find({ userId })
+  Register.find({ email })
     .then((data) => {
       if (data.length !== 0) {
         return res.json(data);
@@ -17,9 +17,9 @@ exports.oneRegisterGet = (req, res) => {
 };
 
 exports.contactGet = (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
 
-  Register.findOne({ userId }, (err, data) => {
+  Register.findOne({ email }, (err, data) => {
     if (err) res.send(err);
     const sendData = data.contact;
     return res.json(sendData);
@@ -27,13 +27,13 @@ exports.contactGet = (req, res) => {
 }
 
 exports.saveContact = (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
   const { contact } = req.body;
-  Register.find({ userId })
+  Register.find({ email })
     .then((data) => {
       if (data.length === 0) {
         const register = new Register({
-          userId,
+          email,
           contact,
         });
 
@@ -42,7 +42,7 @@ exports.saveContact = (req, res) => {
           .catch(err => res.send({ err }));
       }
 
-      return Register.update({ userId }, { $set: { contact } }, (err) => {
+      return Register.update({ email }, { $set: { contact } }, (err) => {
         if (err) res.send({ err });
         res.json({ update: 'success' });
       });
@@ -50,9 +50,9 @@ exports.saveContact = (req, res) => {
 };
 
 exports.academicGet = (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
 
-  Register.findOne({ userId }, (err, data) => {
+  Register.findOne({ email }, (err, data) => {
     if (err) res.send(err);
     const sendData = data.academic;
     return res.json(sendData);
@@ -60,14 +60,14 @@ exports.academicGet = (req, res) => {
 }
 
 exports.saveAcademic = (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
   const { academic } = req.body;
 
-  Register.find({ userId })
+  Register.find({ email })
     .then((data) => {
       if (data.length === 0) {
         const register = new Register({
-          userId,
+          email,
           academic,
         });
 
@@ -76,7 +76,7 @@ exports.saveAcademic = (req, res) => {
           .catch(err => res.send({ err }));
       }
 
-      return Register.update({ userId }, { $set: { 'academic.body': academic } }, (err) => {
+      return Register.update({ email }, { $set: { 'academic.body': academic } }, (err) => {
         if (err) res.send({ err });
         res.json({ update: 'success' });
       });
@@ -84,9 +84,9 @@ exports.saveAcademic = (req, res) => {
 };
 
 exports.educationGet = (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
 
-  Register.findOne({ userId }, (err, data) => {
+  Register.findOne({ email }, (err, data) => {
     if (err) res.send(err);
     const sendData = data.education;
     return res.json(sendData);
@@ -94,14 +94,14 @@ exports.educationGet = (req, res) => {
 }
 
 exports.saveEducation = (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
   const { education } = req.body;
 
-  Register.find({ userId })
+  Register.find({ email })
     .then((data) => {
       if (data.length === 0) {
         const register = new Register({
-          userId,
+          email,
           education,
         });
 
@@ -110,7 +110,7 @@ exports.saveEducation = (req, res) => {
           .catch(err => res.send({ err }));
       }
 
-      return Register.update({ userId }, { $set: { 'education.body': education } }, (err) => {
+      return Register.update({ email }, { $set: { 'education.body': education } }, (err) => {
         if (err) res.send({ err });
         res.json({ update: 'success' });
       });
@@ -118,9 +118,9 @@ exports.saveEducation = (req, res) => {
 };
 
 exports.extracurricularGet = (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
 
-  Register.findOne({ userId }, (err, data) => {
+  Register.findOne({ email }, (err, data) => {
     if (err) res.send(err);
     const sendData = data.extracurricular;
     return res.json(sendData);
@@ -128,14 +128,14 @@ exports.extracurricularGet = (req, res) => {
 }
 
 exports.saveExtracurricular = (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
   const { extracurricular } = req.body;
 
-  Register.find({ userId })
+  Register.find({ email })
     .then((data) => {
       if (data.length === 0) {
         const register = new Register({
-          userId,
+          email,
           extracurricular,
         });
 
@@ -144,7 +144,7 @@ exports.saveExtracurricular = (req, res) => {
           .catch(err => res.send({ err }));
       }
 
-      return Register.update({ userId }, { $set: { 'extracurricular.body': extracurricular } }, (err) => {
+      return Register.update({ email }, { $set: { 'extracurricular.body': extracurricular } }, (err) => {
         if (err) res.send({ err });
         res.json({ update: 'success' });
       });
@@ -152,9 +152,9 @@ exports.saveExtracurricular = (req, res) => {
 };
 
 exports.awardGet = (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
 
-  Register.findOne({ userId }, (err, data) => {
+  Register.findOne({ email }, (err, data) => {
     if (err) res.send(err);
     const sendData = data.award;
     return res.json(sendData);
@@ -162,14 +162,14 @@ exports.awardGet = (req, res) => {
 }
 
 exports.saveAward = (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
   const { award } = req.body;
 
-  Register.find({ userId })
+  Register.find({ email })
     .then((data) => {
       if (data.length === 0) {
         const register = new Register({
-          userId,
+          email,
           award,
         });
 
@@ -178,7 +178,7 @@ exports.saveAward = (req, res) => {
           .catch(err => res.send({ err }));
       }
 
-      return Register.update({ userId }, { $set: { 'award.body': award } }, (err) => {
+      return Register.update({ email }, { $set: { 'award.body': award } }, (err) => {
         if (err) res.send({ err });
         res.json({ update: 'success' });
       });

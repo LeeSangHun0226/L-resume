@@ -13,23 +13,19 @@ exports.oneUserGet = (req, res) => {
 };
 
 exports.saveUser = (req, res) => {
-  const { email, password } = req.body;
+  const { email } = req.body;
+  // const user = new User({
+  //   email,
+  //   password,
+  // });
 
-  const user = new User({
-    email,
-    password,
-  });
-
-  let userId;
-  return user.save()
-    .then((data) => {
-      userId = data._id;
-      
-      return res.json(data);
-    })
-    .then(() => {
+  // let userId;
+  // return user.save()
+    // .then((data) => {
+      // userId = data._id;
       const register = new Register({
-        userId,
+        // userId,
+        email,
         title: 'MY RESUME TITLE',
         contact: {
           firstName: '',
@@ -74,7 +70,7 @@ exports.saveUser = (req, res) => {
       });
 
       return register.save()
-      .catch(err => res.send({ err }));
-    })
+    // })
+    .then(data => res.json(data))
     .catch(err => res.send({ err }));
 };

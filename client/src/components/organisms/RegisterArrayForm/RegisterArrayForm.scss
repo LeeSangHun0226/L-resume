@@ -118,5 +118,17 @@
 
   }
   // background: material-color('teal', '600');
+  .photo-form {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
 
+    .input {
+      padding: 2rem;
+      font-size: 1rem;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+  }
 }

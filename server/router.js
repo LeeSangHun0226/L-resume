@@ -23,32 +23,32 @@ module.exports = function (app) {
   pdfRoutes.post('/', PdfController.savePhoto);
 
   apiRoutes.use('/title', titleRoutes);
-  titleRoutes.get('/:userId', titleController.titleGet);
-  titleRoutes.post('/:userId', titleController.saveTitle);
-  titleRoutes.post('/nav/:userId', titleController.saveNav);
+  titleRoutes.get('/:email', titleController.titleGet);
+  titleRoutes.post('/:email', titleController.saveTitle);
+  titleRoutes.post('/nav/:email', titleController.saveNav);
 
   apiRoutes.use('/link', linkRoutes);
-  linkRoutes.post('/academic/:userId', linkController.saveAcademicLink);
-  linkRoutes.post('/academic/modify/:userId', linkController.modifyAcademicLink);
-  linkRoutes.post('/education/:userId', linkController.saveEducationLink);
-  linkRoutes.post('/education/modify/:userId', linkController.modifyEducationLink);
-  linkRoutes.post('/extracurricular/:userId', linkController.saveExtracurricularLink);
-  linkRoutes.post('/extracurricular/modify/:userId', linkController.modifyExtracurricularLink);
-  linkRoutes.post('/award/:userId', linkController.saveAwardLink);
-  linkRoutes.post('/award/modify/:userId', linkController.modifyAwardLink);
+  linkRoutes.post('/academic/:email', linkController.saveAcademicLink);
+  linkRoutes.post('/academic/modify/:email', linkController.modifyAcademicLink);
+  linkRoutes.post('/education/:email', linkController.saveEducationLink);
+  linkRoutes.post('/education/modify/:email', linkController.modifyEducationLink);
+  linkRoutes.post('/extracurricular/:email', linkController.saveExtracurricularLink);
+  linkRoutes.post('/extracurricular/modify/:email', linkController.modifyExtracurricularLink);
+  linkRoutes.post('/award/:email', linkController.saveAwardLink);
+  linkRoutes.post('/award/modify/:email', linkController.modifyAwardLink);
 
   // apiRoutes.use('/pdf', pdfRoutes);
   // pdfRoutes.post('/', PdfController.savePdf);
 
   apiRoutes.use('/photo', photoRoutes);
-  photoRoutes.post('/academic/:userId', photoController.saveAcademicPhoto);
-  photoRoutes.post('/academic/modify/:userId', photoController.modifyAcademicPhoto);
-  photoRoutes.post('/education/:userId', photoController.saveEducationPhoto);
-  photoRoutes.post('/education/modify/:userId', photoController.modifyEducationPhoto);
-  photoRoutes.post('/extracurricular/:userId', photoController.saveExtracurricularPhoto);
-  photoRoutes.post('/extracurricular/modify/:userId', photoController.modifyExtracurricularPhoto);
-  photoRoutes.post('/award/:userId', photoController.saveAwardPhoto);
-  photoRoutes.post('/award/modify/:userId', photoController.modifyAwardPhoto);
+  photoRoutes.post('/academic/:email', photoController.saveAcademicPhoto);
+  photoRoutes.post('/academic/modify/:email', photoController.modifyAcademicPhoto);
+  photoRoutes.post('/education/:email', photoController.saveEducationPhoto);
+  photoRoutes.post('/education/modify/:email', photoController.modifyEducationPhoto);
+  photoRoutes.post('/extracurricular/:email', photoController.saveExtracurricularPhoto);
+  photoRoutes.post('/extracurricular/modify/:email', photoController.modifyExtracurricularPhoto);
+  photoRoutes.post('/award/:email', photoController.saveAwardPhoto);
+  photoRoutes.post('/award/modify/:email', photoController.modifyAwardPhoto);
 
   apiRoutes.use('/user', userRoutes);
 
@@ -58,20 +58,20 @@ module.exports = function (app) {
   apiRoutes.use('/register', registerRoutes);
 
   // registerRoutes.get('/', RegisterController.allRegisterGet);
-  registerRoutes.get('/:userId', RegisterController.oneRegisterGet);
-  // registerRoutes.post('/new/:userId', RegisterController.saveRegister);
-  registerRoutes.get('/contact/:userId', RegisterController.contactGet);
-  registerRoutes.post('/contact/:userId', RegisterController.saveContact);
-  registerRoutes.get('/academic/:userId', RegisterController.academicGet);
-  registerRoutes.post('/academic/:userId', RegisterController.saveAcademic);
-  registerRoutes.get('/education/:userId', RegisterController.educationGet);
-  registerRoutes.post('/education/:userId', RegisterController.saveEducation);
-  registerRoutes.get('/extracurricular/:userId', RegisterController.extracurricularGet);
-  registerRoutes.post('/extracurricular/:userId', RegisterController.saveExtracurricular);
-  registerRoutes.get('/award/:userId', RegisterController.awardGet);
-  registerRoutes.post('/award/:userId', RegisterController.saveAward);
-  // registerRoutes.post('/academic/photo/:userId', RegisterController.saveAcademicPhoto);
-  // registerRoutes.post('/academic/link/:userId', RegisterController.saveAcademicLink);
+  registerRoutes.get('/:email', RegisterController.oneRegisterGet);
+  // registerRoutes.post('/new/:email', RegisterController.saveRegister);
+  registerRoutes.get('/contact/:email', RegisterController.contactGet);
+  registerRoutes.post('/contact/:email', RegisterController.saveContact);
+  registerRoutes.get('/academic/:email', RegisterController.academicGet);
+  registerRoutes.post('/academic/:email', RegisterController.saveAcademic);
+  registerRoutes.get('/education/:email', RegisterController.educationGet);
+  registerRoutes.post('/education/:email', RegisterController.saveEducation);
+  registerRoutes.get('/extracurricular/:email', RegisterController.extracurricularGet);
+  registerRoutes.post('/extracurricular/:email', RegisterController.saveExtracurricular);
+  registerRoutes.get('/award/:email', RegisterController.awardGet);
+  registerRoutes.post('/award/:email', RegisterController.saveAward);
+  // registerRoutes.post('/academic/photo/:email', RegisterController.saveAcademicPhoto);
+  // registerRoutes.post('/academic/link/:email', RegisterController.saveAcademicLink);
 
   app.use('/api', apiRoutes);
 };

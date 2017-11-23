@@ -5,10 +5,11 @@ mongoose.Promise = require('bluebird');
 const Schema = mongoose.Schema;
 
 const Register = new Schema({
-  userId: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-  },
+  // userId: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'User',
+  // },
+  email: { type: String },
   title: { type: String },
   contact: {
     firstName: { type: String },

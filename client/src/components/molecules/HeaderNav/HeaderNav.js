@@ -21,7 +21,7 @@ const HeaderNav = ({ authed, location }) => {
           to="/" 
           onClick={() => {
             logout()
-            localStorage.setItem('isLogedIn', false);
+            // localStorage.setItem('isLogedIn', false);
           }
           }>
             LOG OUT

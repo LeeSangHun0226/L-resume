@@ -14,9 +14,9 @@ class PdfContainer extends Component {
 
   componentDidMount() {
     // const { userId } = this.props.match.params;
-    const userId = localStorage.getItem('userId');
+    const email = localStorage.getItem('email');
     
-    axios.get(`http://${fetchServerConfig.ip}:4000/api/register/${userId}`)
+    axios.get(`http://${fetchServerConfig.ip}:4000/api/register/${email}`)
     .then((res) => {
       this.setState({
         data: res.data[0],
@@ -30,7 +30,7 @@ class PdfContainer extends Component {
   }
 
   render() {
-    const userId = localStorage.getItem('userId');
+    const email = localStorage.getItem('email');
     return this.state.loading === true ? <h1>Loading</h1> : (
       <div>
         <Pdf data={this.state.data} />

@@ -15,13 +15,11 @@ class Pdf extends Component {
 
   componentDidMount() {
     // const { userId } = this.props.match.params;
-    let userId;
+    let email;
     const href = window.location.href;
     const param = href.split('pdf/');
-    localStorage.getItem('userId') ? userId = localStorage.getItem('userId') : userId = param[1];
-    console.log(typeof userId)
-    console.log(typeof param[1])
-    axios.get(`http://${fetchServerConfig.ip}:4000/api/register/${userId}`)
+    localStorage.getItem('email') ? email = localStorage.getItem('email') : email = param[1];
+    axios.get(`http://${fetchServerConfig.ip}:4000/api/register/${email}`)
       .then((res) => {
         this.setState({
           data: res.data[0],

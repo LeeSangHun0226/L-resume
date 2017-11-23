@@ -102,9 +102,9 @@ const RegisterArrayForm = ({
             {
               !data.photoFlag
               ?
-                <form onSubmit={e => onSubmitPhoto(e, index)} encType="multipart/form-data">
-                  <input disabled={data.isSelected} type="file" onChange={e => onUpdatePhoto(e, index)} />
-                  <input type="submit" value="Upload" />
+                <form className={cx('photo-form')} onSubmit={e => onSubmitPhoto(e, index)} encType="multipart/form-data">
+                  <input className={cx('input')} disabled={data.isSelected} type="file" onChange={e => onUpdatePhoto(e, index)} />
+                  <input className={cx('input')} type="submit" value="Upload" />
                 </form>
               :
                 <div>

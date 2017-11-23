@@ -10,7 +10,7 @@ export function login(email, password) {
 }
 
 export function logout() {
-  localStorage.removeItem('userId')
+  // localStorage.removeItem('email')
   return firebaseAuth().signOut()
 }
 

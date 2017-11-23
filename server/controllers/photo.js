@@ -11,11 +11,11 @@ const upload = multer({ storage });
 const s3 = new AWS.S3();
 
 exports.saveAcademicPhoto = (upload.single('file'), (req, res) => {  
-  const { userId } = req.params;
+  const { email } = req.params;
   const index = req.body.photo.index;
   const filename = req.body.photo.filename;
   const Bucket = 'l-resume';
-  const userKey = `${userId}/academic/${index}.png`;
+  const userKey = `${email}/academic/${index}.png`;
 
   const buf = new Buffer(req.body.photo.data_uri.replace(/^data:image\/\w+;base64,/, ''), 'base64');
 
@@ -29,7 +29,7 @@ exports.saveAcademicPhoto = (upload.single('file'), (req, res) => {
   s3.upload(params, (err, data) => {
     if (err) throw err;
 
-    Register.update({ userId },
+    Register.update({ email },
       { $push: { 'academic.photo': {
         data_uri: data.Location,
         photoFlag: true,
@@ -42,10 +42,10 @@ exports.saveAcademicPhoto = (upload.single('file'), (req, res) => {
 });
 
 exports.modifyAcademicPhoto = (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
   const { data } = req.body;
 
-  Register.update({ userId }, { $set: { 'academic.photo': data } }, (err) => {
+  Register.update({ email }, { $set: { 'academic.photo': data } }, (err) => {
     if (err) res.send({ err });
     res.send({ update: 'success' });
   });
@@ -53,11 +53,11 @@ exports.modifyAcademicPhoto = (req, res) => {
 
 
 exports.saveEducationPhoto = (upload.single('file'), (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
   const index = req.body.photo.index;
   const filename = req.body.photo.filename;
   const Bucket = 'l-resume';
-  const userKey = `${userId}/education/${index}.png`;
+  const userKey = `${email}/education/${index}.png`;
 
   const buf = new Buffer(req.body.photo.data_uri.replace(/^data:image\/\w+;base64,/, ''), 'base64');
 
@@ -71,7 +71,7 @@ exports.saveEducationPhoto = (upload.single('file'), (req, res) => {
   s3.upload(params, (err, data) => {
     if (err) throw err;
 
-    Register.update({ userId },
+    Register.update({ email },
       {
         $push: {
           'education.photo': {
@@ -88,21 +88,21 @@ exports.saveEducationPhoto = (upload.single('file'), (req, res) => {
 });
 
 exports.modifyEducationPhoto = (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
   const { data } = req.body;
 
-  Register.update({ userId }, { $set: { 'education.photo': data } }, (err) => {
+  Register.update({ email }, { $set: { 'education.photo': data } }, (err) => {
     if (err) res.send({ err });
     res.send({ update: 'success' });
   });
 }
 
 exports.saveExtracurricularPhoto = (upload.single('file'), (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
   const index = req.body.photo.index;
   const filename = req.body.photo.filename;
   const Bucket = 'l-resume';
-  const userKey = `${userId}/extracurricular/${index}.png`;
+  const userKey = `${email}/extracurricular/${index}.png`;
 
   const buf = new Buffer(req.body.photo.data_uri.replace(/^data:image\/\w+;base64,/, ''), 'base64');
 
@@ -116,7 +116,7 @@ exports.saveExtracurricularPhoto = (upload.single('file'), (req, res) => {
   s3.upload(params, (err, data) => {
     if (err) throw err;
 
-    Register.update({ userId },
+    Register.update({ email },
       {
         $push: {
           'extracurricular.photo': {
@@ -133,21 +133,21 @@ exports.saveExtracurricularPhoto = (upload.single('file'), (req, res) => {
 });
 
 exports.modifyExtracurricularPhoto = (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
   const { data } = req.body;
 
-  Register.update({ userId }, { $set: { 'extracurricular.photo': data } }, (err) => {
+  Register.update({ email }, { $set: { 'extracurricular.photo': data } }, (err) => {
     if (err) res.send({ err });
     res.send({ update: 'success' });
   });
 }
 
 exports.saveAwardPhoto = (upload.single('file'), (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
   const index = req.body.photo.index;
   const filename = req.body.photo.filename;
   const Bucket = 'l-resume';
-  const userKey = `${userId}/award/${index}.png`;
+  const userKey = `${email}/award/${index}.png`;
 
   const buf = new Buffer(req.body.photo.data_uri.replace(/^data:image\/\w+;base64,/, ''), 'base64');
 
@@ -161,7 +161,7 @@ exports.saveAwardPhoto = (upload.single('file'), (req, res) => {
   s3.upload(params, (err, data) => {
     if (err) throw err;
 
-    Register.update({ userId },
+    Register.update({ email },
       {
         $push: {
           'award.photo': {
@@ -178,10 +178,10 @@ exports.saveAwardPhoto = (upload.single('file'), (req, res) => {
 });
 
 exports.modifyAwardPhoto = (req, res) => {
-  const { userId } = req.params;
+  const { email } = req.params;
   const { data } = req.body;
 
-  Register.update({ userId }, { $set: { 'award.photo': data } }, (err) => {
+  Register.update({ email }, { $set: { 'award.photo': data } }, (err) => {
     if (err) res.send({ err });
     res.send({ update: 'success' });
   });

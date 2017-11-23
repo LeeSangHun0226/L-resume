@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { HashRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route, Switch, Link } from 'react-router-dom';
 import axios from 'axios';
 
 import LoginPage from './components/pages/LoginPage';
@@ -16,7 +16,8 @@ import store from './store';
 import './App.scss';
 import { fetchServerConfig } from './config';
 
-const PrivateRoute = ({ component: Component, authed, ...rest }) => (
+const PrivateRoute = ({ component: Component, authed, ...rest }) => {
+  return (
   <Route 
     { ...rest }
     render={props => authed === true
@@ -30,6 +31,7 @@ const PrivateRoute = ({ component: Component, authed, ...rest }) => (
     }
   />
 )
+}
 
 const PublicRoute = ({ component: Component, authed, ...rest }) => (
   <Route
@@ -57,23 +59,31 @@ class App extends Component {
   }
 
   componentDidMount() {
-
     firebaseAuth().onAuthStateChanged((user) => {
         if (user) {
           const email = user.email;
-          axios.get(`http://${fetchServerConfig.ip}:4000/api/user/${email}`)
-            .then(res => {
-              localStorage.setItem('userId', res.data._id);
-            })
-            .then(() => {
-              this.setState({
-                authed: true,
-                loading: false,
-              })
-            })
-            .catch(err => console.log(err))
+          // return axios.get(`http://${fetchServerConfig.ip}:4000/api/user/${email}`)
+            // .then(res => {
+              // console.log('111')
+              // console.lo
+              console.log('??')
+              localStorage.setItem('email', email);
+            // })
+            // .then(() => {
+              // console.log('...')
+              
+                
+                this.setState({
+                    authed: true,
+                    loading: false,
+                  })
+
+                // window.location.replace(`http://${fetchServerConfig.ip}:3000/register/contact`)
+              
+            // })
+            // .catch(err => console.log(err))
         } else {
-          localStorage.removeItem('userId');
+          localStorage.removeItem('email');
           this.setState({
             authed: false,
             loading: false,
@@ -82,67 +92,23 @@ class App extends Component {
       })
   }
 
-  componentWillMount() {
-    this.channelIo()
-  }
-
-  channelIo = () => {
-    function a () {
-      if (window.CHPlugin) {
-        return window.console && console.error && console.error('Channel Plugin script included twice.');
-      }
-      var ch = { q: [] };
-      ['initialize', 'checkIn', 'checkOut', 'show', 'hide', 'track', 'timeTrack'].forEach(function (e) {
-        ch[e] = function () {
-          var n = Array.prototype.slice.call(arguments);
-          n.unshift(e);
-          ch.q.push(n);
-        }
-      });
-      window.CHPlugin = ch;
-      var node = document.createElement('div');
-      node.id = 'ch-plugin';
-      document.body.appendChild(node);
-      var async_load = function () {
-        var s = document.createElement('script');
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = '//cdn.channel.io/plugin/ch-plugin-web.js';
-        s.charset = 'UTF-8';
-        var x = document.getElementsByTagName('script')[0];
-        x.parentNode.insertBefore(s, x);
-      };
-      if (window.attachEvent) {
-        window.attachEvent('onload', async_load);
-      } else {
-        window.addEventListener('load', async_load, false);
-      }
-    }
-    a();
-    window.CHPlugin.initialize({
-      plugin_id: '202ca41e-9a61-44f6-9a0e-deedc6422833',
-      hide_default_launcher: false
-    });
-  }
-
-
   componentWillUnmount() {
     this.removeListner();
   }
 
   render() {
-    // return this.state.loading === true ? <h1>Loading</h1> : (
-      return (
+    return this.state.loading === true ? <h1>Loading</h1> : (
+      // return (
       <Provider store={store}>
         <Router>
           <div style={{ height: '100%' }}>
             {/*<Header authed={this.state.authed} />*/}
             <Switch>
-              <Route exact path="/" authed={this.state.authed} component={HomePage} />
+              <PublicRoute exact path="/" authed={this.state.authed} component={HomePage} />
               <PublicRoute authed={this.state.authed} path="/login" component={LoginPage} />
               <PublicRoute authed={this.state.authed} path="/signup" component={SignUpPage} />
-              <PdfRoute exact path="/pdf/:userId" component={PdfPage} />
               <PrivateRoute authed={this.state.authed} path="/register" component={RegisterPage} />
+              <PdfRoute exact path="/pdf/:email" component={PdfPage} />
               <Route render={() => <h3>404 Not Found</h3> } />
             </Switch>
             <Footer />

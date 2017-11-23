@@ -19,8 +19,8 @@ class AwardContainer extends Component {
   }
 
   componentDidMount() {
-    const userId = localStorage.getItem('userId');
-    axios.get(`http://${fetchServerConfig.ip}:4000/api/register/award/${userId}`)
+    const email = localStorage.getItem('email');
+    axios.get(`http://${fetchServerConfig.ip}:4000/api/register/award/${email}`)
       .then(res => {
         const { body, photo, link } = res.data;
 
@@ -34,8 +34,8 @@ class AwardContainer extends Component {
 
   handleSubmit = (event) => {
     const { photo, link } = this.state;
-    const userId = localStorage.getItem('userId')
-    axios.post(`http://${fetchServerConfig.ip}:4000/api/register/award/${userId}`, {
+    const email = localStorage.getItem('email')
+    axios.post(`http://${fetchServerConfig.ip}:4000/api/register/award/${email}`, {
       award: this.state.body,
       photo,
       link,
@@ -163,14 +163,14 @@ class AwardContainer extends Component {
       index: this.state.photo[photoIndex].index,
     }
 
-    const userId = localStorage.getItem('userId')
+    const email = localStorage.getItem('email')
 
     axios({
       method: 'post',
-      url: `http://${fetchServerConfig.ip}:4000/api/photo/award/${userId}`,
+      url: `http://${fetchServerConfig.ip}:4000/api/photo/award/${email}`,
       data: {
         photo,
-        userId,
+        email,
       },
       dataType: 'json',
     })
@@ -189,7 +189,7 @@ class AwardContainer extends Component {
   }
 
   handleSubmitLink = (e, index) => {
-    const userId = localStorage.getItem('userId');
+    const email = localStorage.getItem('email');
     this.setState({
       link: update(
         this.state.link,
@@ -200,7 +200,7 @@ class AwardContainer extends Component {
         }
       )
     }, () => {
-      axios.post(`http://${fetchServerConfig.ip}:4000/api/link/award/${userId}`, {
+      axios.post(`http://${fetchServerConfig.ip}:4000/api/link/award/${email}`, {
         data: this.state.link,
       })
         .then(res => console.log(res))
@@ -209,7 +209,7 @@ class AwardContainer extends Component {
   }
 
   handleDeletePhoto = (e, index) => {
-    const userId = localStorage.getItem('userId');
+    const email = localStorage.getItem('email');
     this.setState(prevState => ({
       photo: update(
         prevState.photo, {
@@ -217,7 +217,7 @@ class AwardContainer extends Component {
         }
       )
     }), () => {
-      axios.post(`http://${fetchServerConfig.ip}:4000/api/photo/award/modify/${userId}`, {
+      axios.post(`http://${fetchServerConfig.ip}:4000/api/photo/award/modify/${email}`, {
         data: this.state.photo,
       })
         .then(res => console.log(res))
@@ -226,7 +226,7 @@ class AwardContainer extends Component {
   }
 
   handleDeleteLink = (e, index) => {
-    const userId = localStorage.getItem('userId');
+    const email = localStorage.getItem('email');
     this.setState(prevState => ({
       link: update(
         prevState.link, {
@@ -234,7 +234,7 @@ class AwardContainer extends Component {
         }
       )
     }), () => {
-      axios.post(`http://${fetchServerConfig.ip}:4000/api/link/award/modify/${userId}`, {
+      axios.post(`http://${fetchServerConfig.ip}:4000/api/link/award/modify/${email}`, {
         data: this.state.link,
       })
         .then(res => console.log(res))

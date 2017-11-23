@@ -18,8 +18,8 @@ class RegisterFormContainer extends Component {
 
   componentDidMount() {
 
-    const userId = localStorage.getItem('userId');
-    axios.get(`http://${fetchServerConfig.ip}:4000/api/register/${userId}`)
+    const email = localStorage.getItem('email');
+    axios.get(`http://${fetchServerConfig.ip}:4000/api/register/${email}`)
     .then((res) => {
       this.setState({
         inputContents: res.data[0],
@@ -111,8 +111,8 @@ class RegisterFormContainer extends Component {
   handleSubmitForm = () => {
     // this.pdfToHTML()
     const data = this.state.inputContents;
-    const userId = localStorage.getItem('userId')
-    axios.post(`http://${fetchServerConfig.ip}:4000/api/register/${userId}`, data)
+    const email = localStorage.getItem('email')
+    axios.post(`http://${fetchServerConfig.ip}:4000/api/register/${email}`, data)
     .then(data => 
       alert('saving is completed!')
     )

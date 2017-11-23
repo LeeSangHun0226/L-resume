@@ -14,7 +14,6 @@ exports.savePdf = (req, res) => {
 
 exports.savePhoto = (upload.single('file'), (req, res) => {
 
-  const userId = req.body.userId;
   const filename = req.body.photo.filename;
   const Bucket = 'l-resume';
   const userKey = `user/${filename}.png`;

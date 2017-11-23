@@ -21,8 +21,8 @@ const RegisterIndexNav = ({
   onNavClick,
 }) => {
   const navLocation = 'registerIndex';
-  const id = localStorage.getItem('userId');
-  const pdflink = `${pdfServerConfig.url}/api/render?url=http://13.125.28.71:3000/pdf/${id}`
+  const email = localStorage.getItem('email');
+  const pdflink = `${pdfServerConfig.url}/api/render?url=http://13.125.28.71:3000/pdf/${email}`
   return (
     <FlexBox column className={cx('registerIndex')}>
       <FlexBox space className={cx('header-wrapper')}>
@@ -47,7 +47,7 @@ const RegisterIndexNav = ({
           className={cx('header-menu')}
           onClick={() => {
           history.push({
-          pathname: `/pdf/${id}`,
+            pathname: `/pdf/${email}`,
         })
       }}>
           <a href={pdflink}>download</a>
