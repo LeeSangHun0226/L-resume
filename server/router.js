@@ -77,6 +77,7 @@ module.exports = function (app) {
   registerRoutes.get('/extra/:email', RegisterController.extraGet);
   registerRoutes.post('/extra/:email', RegisterController.saveExtra);
   registerRoutes.post('/extra/change/:email', RegisterController.changeExtra);
+  registerRoutes.post('/extra/delete/:email', RegisterController.deleteExtra);
   // registerRoutes.post('/academic/photo/:email', RegisterController.saveAcademicPhoto);
   // registerRoutes.post('/academic/link/:email', RegisterController.saveAcademicLink);
 

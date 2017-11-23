@@ -25,6 +25,7 @@ const RegisterArrayForm = ({
   onSubmitLink,
   onDeletePhoto,
   onDeleteLink,
+  onDelete,
 }) => {
 
   const labels = {
@@ -90,6 +91,9 @@ const RegisterArrayForm = ({
       ))}
       <div className={cx('save-wrapper')}>
         <Button className={cx('save-button')} roundCorner width={5} onClick={onSubmit}>Save</Button>
+        {
+          location === 'extra' ? <Button className={cx('save-button')} roundCorner width={5} onClick={onDelete}>Delete</Button> : false
+        }
       </div>
       <div className={cx('add-wrapper')}>
       <button className={cx('button')} onClick={onAddBodyForm}>+Add another {location}</button>

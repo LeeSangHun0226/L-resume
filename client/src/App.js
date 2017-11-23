@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Redirect, Route, Switch, Link } from 'react-router-dom';
+import { HashRouter as Router, Redirect, Route, Switch, Link } from 'react-router-dom';
 import axios from 'axios';
 
 import LoginPage from './components/pages/LoginPage';

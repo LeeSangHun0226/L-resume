@@ -42,28 +42,39 @@ class RegisterIndexContainer extends Component {
 
   componentDidMount() {
     // console.log(this.props)
+    this.fetchData();
+  }
+
+  fetchData = () => {
     const changeNavIndex = 5;
     // const changeNav = this.props.history.location.state;
     const email = localStorage.getItem('email');
     axios.get(`http://${fetchServerConfig.ip}:4000/api/title/${email}`)
-    .then(res => {
-      console.log(res.data.extraTitle)
-      return this.setState({
-        title: res.data.title,
-        loading: true,
-        navList: update(
-          this.state.navList,
-          {
-            [changeNavIndex]: {
-              name: {
-                $set: res.data.extraTitle,
+      .then(res => {
+        return this.setState({
+          title: res.data.title,
+          loading: true,
+          navList: update(
+            this.state.navList,
+            {
+              [changeNavIndex]: {
+                name: {
+                  $set: res.data.extraTitle,
+                }
               }
             }
-          }
-        )
-      })
-    });
+          )
+        })
+      });
   }
+
+  componentWillReceiveProps(nextprops) {
+    if (nextprops.history.location.pathname === '/register/new') {
+      this.fetchData()
+    }
+    return;
+  }
+
 
   handleExtraTitleChange = (title) => {
     const email = localStorage.getItem('email');

@@ -34,6 +34,29 @@ class ExtraContainer extends Component {
       })
   }
 
+  handleDelete = () => {
+    const email = localStorage.getItem('email')
+    axios.post(`http://${fetchServerConfig.ip}:4000/api/register/extra/delete/${email}`)
+      .then(() => {
+        this.setState({
+          body: [{
+            description: '',
+            index: 0,
+          }],
+          photo: [],
+          link: [],
+        })
+      })
+      .then(() => {
+        this.props.history.push({
+          pathname: '/register/new',
+          state: 'Add new +',
+        })
+      })
+      .catch(err => console.log(err))
+  }
+
+
   handleSubmit = (event) => {
     const { photo, link } = this.state;
     const email = localStorage.getItem('email')
@@ -260,6 +283,7 @@ class ExtraContainer extends Component {
       handleUpdateLink,
       handleDeletePhoto,
       handleDeleteLink,
+      handleDelete,
     } = this;
 
     return (
@@ -281,6 +305,7 @@ class ExtraContainer extends Component {
         onDeletePhoto={handleDeletePhoto}
         onDeleteLink={handleDeleteLink}
         location="extra"
+        onDelete={handleDelete}
       />
     );
   }

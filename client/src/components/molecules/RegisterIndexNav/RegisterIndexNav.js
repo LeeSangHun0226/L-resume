@@ -59,24 +59,47 @@ const RegisterIndexNav = ({
           navList.map((nav, i) => {
             // let changeSection;
             const active = nav.active;
+
+            if (nav.path === 'new') {
+              return (
+                // <div>
+                  <NavItem
+                    key={i}
+                    className={cx('nav', { active })}
+                    onClick={() => {
+                      onNavClick(i);
+                      if (nav.path === 'new' && nav.name === 'Add new +') {
+                        let changeTitle = prompt('change??');
+                        if (changeTitle === null) {
+                          changeTitle = prompt('change??');
+                        }
+                        onExtraTitleChange(changeTitle);
+                        return history.push({
+                          pathname: nav.path,
+                          state: changeTitle,
+                        })
+                      }
+
+                      return history.push({
+                        pathname: nav.path
+                      })
+                    }}
+                  >
+                  {nav.name}
+                  </NavItem>
+                //   <button className={cx('edit-button')} onClick={onChangeTitle}>
+                //     <img className={cx('image')} src={newEditImg} alt="new-edit" />
+                //   </button>  
+                // </div>
+              )
+            }
+
             return (
               <NavItem
                 key={i}
                 className={cx('nav', { active })}
                 onClick={() => {
                   onNavClick(i);
-                  if (nav.path === 'new' && nav.name === 'Add new +') {
-                    let changeTitle = prompt('change??');
-                    if (changeTitle === null) {
-                      changeTitle = prompt('change??');
-                    }
-                    onExtraTitleChange(changeTitle);
-                    return history.push({
-                      pathname: nav.path,
-                      state: changeTitle,
-                    })
-                  }
-
                   return history.push({
                     pathname: nav.path
                   })

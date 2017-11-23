@@ -234,3 +234,21 @@ exports.changeExtra = (req, res) => {
     res.json({ update: 'success' });
   });
 };
+
+exports.deleteExtra = (req, res) => {
+  const { email } = req.params;
+
+  Register.update({ email }, {
+    $set: {
+      'extra.title': 'Add new +',
+      'extra.body': [{
+        description: '',
+      }],
+      'extra.photo': [],
+      'extra.link': [],
+    },
+  }, (err) => {
+    if (err) res.send({ err });
+    res.json({ update: 'success' });
+  });
+};
