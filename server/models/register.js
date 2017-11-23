@@ -86,12 +86,21 @@ const Register = new Schema({
       linkFlag: { type: Boolean },
     }],
   },
-  extra: [{
+  extra: {
     title: { type: String },
     body: [{
       description: { type: String },
     }],
-  }],
+    photo: [{
+      data_uri: { type: String },
+      filename: { type: String },
+      photoFlag: { type: Boolean },
+    }],
+    link: [{
+      linkUrl: { type: String },
+      linkFlag: { type: Boolean },
+    }],
+  },
 });
 
 module.exports = mongoose.model('Register', Register);

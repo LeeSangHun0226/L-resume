@@ -19,6 +19,7 @@ const RegisterIndex = ({
   navList,
   onChangeNavList,
   onNavClick,
+  onExtraTitleChange,
 }) => {
   return (
     <div className={cx('RegisterIndex', { solid })}>
@@ -34,6 +35,7 @@ const RegisterIndex = ({
             navList={navList}
             onChangeNavList={onChangeNavList}
             onNavClick={onNavClick}
+            onExtraTitleChange={onExtraTitleChange}
           />
         </div>
       </div>

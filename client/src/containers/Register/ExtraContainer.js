@@ -18,9 +18,11 @@ class ExtraContainer extends Component {
   }
 
   componentDidMount() {
+
     const email = localStorage.getItem('email');
-    axios.get(`http://${fetchServerConfig.ip}:4000/api/register/academic/${email}`)
+    axios.get(`http://${fetchServerConfig.ip}:4000/api/register/extra/${email}`)
       .then(res => {
+        console.log(res)
         const { body, photo, link } = res.data;
 
         this.setState({
@@ -28,14 +30,14 @@ class ExtraContainer extends Component {
           photo,
           link,
         })
-        console.log(this.state.photo)
+
       })
   }
 
   handleSubmit = (event) => {
     const { photo, link } = this.state;
     const email = localStorage.getItem('email')
-    axios.post(`http://${fetchServerConfig.ip}:4000/api/register/academic/${email}`, {
+    axios.post(`http://${fetchServerConfig.ip}:4000/api/register/extra/${email}`, {
       academic: this.state.body,
       photo,
       link,
@@ -167,7 +169,7 @@ class ExtraContainer extends Component {
     const location = 'academic';
     axios({
       method: 'post',
-      url: `http://${fetchServerConfig.ip}:4000/api/photo/academic/${email}`,
+      url: `http://${fetchServerConfig.ip}:4000/api/photo/extra/${email}`,
       data: {
         photo,
         email,
@@ -201,7 +203,7 @@ class ExtraContainer extends Component {
         }
       )
     }, () => {
-      axios.post(`http://${fetchServerConfig.ip}:4000/api/link/academic/${email}`, {
+      axios.post(`http://${fetchServerConfig.ip}:4000/api/link/extra/${email}`, {
         data: this.state.link,
       })
         .then(res => console.log(res))
@@ -218,7 +220,7 @@ class ExtraContainer extends Component {
         }
       )
     }), () => {
-      axios.post(`http://${fetchServerConfig.ip}:4000/api/photo/academic/modify/${email}`, {
+      axios.post(`http://${fetchServerConfig.ip}:4000/api/photo/extra/modify/${email}`, {
         data: this.state.photo,
       })
         .then(res => console.log(res))
@@ -235,7 +237,7 @@ class ExtraContainer extends Component {
         }
       )
     }), () => {
-      axios.post(`http://${fetchServerConfig.ip}:4000/api/link/academic/modify/${email}`, {
+      axios.post(`http://${fetchServerConfig.ip}:4000/api/link/extra/modify/${email}`, {
         data: this.state.link,
       })
         .then(res => console.log(res))
@@ -261,6 +263,7 @@ class ExtraContainer extends Component {
     } = this;
 
     return (
+      // <div>1</div>
       <RegisterArrayForm
         inputData={inputData}
         onAddBodyForm={handleAddBodyForm}
@@ -277,8 +280,7 @@ class ExtraContainer extends Component {
         onUpdateLink={handleUpdateLink}
         onDeletePhoto={handleDeletePhoto}
         onDeleteLink={handleDeleteLink}
-        location="academic"
-
+        location="extra"
       />
     );
   }

@@ -89,6 +89,7 @@ class LoginContainer extends Component {
 
   render() {
     const { authForms, authError } = this.props;
+    const { loginError } = this.state;
     const {
       handleChangeInput,
       handleChangeInputEmail,
@@ -109,6 +110,7 @@ class LoginContainer extends Component {
           onResetPassword={handleResetPassword}
           onLogIn={handleLogIn}
           onChangeInput={handleChangeInput}
+          loginError={loginError}
         />
       </div>
     );

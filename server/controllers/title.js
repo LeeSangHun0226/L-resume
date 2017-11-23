@@ -2,10 +2,13 @@ const Register = require('../models/register');
 
 exports.titleGet = (req, res) => {
   const { email } = req.params;
-  console.log(email, '???')
   Register.findOne({ email }, (err, data) => {
     if (err) res.send({ err });
-    const sendData = data.title;
+    // console.log(data)
+    const sendData = {
+      title: data.title,
+      extraTitle: data.extra.title,
+    };
     return res.json(sendData);
   });
 };

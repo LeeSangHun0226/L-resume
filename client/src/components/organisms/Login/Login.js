@@ -19,6 +19,7 @@ const Login = ({
   onChangeInputPassword,
   onChangeInput,
   onLogIn,
+  loginError,
 }) => {
   
   const { email, password } = form;
@@ -26,7 +27,7 @@ const Login = ({
   const {
     email: emailError,
     password: passwordError,
-    login: loginError,
+    // login: loginError,
     // localLogin: localLoginError,
   } = error ? error : {};
 

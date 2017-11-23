@@ -67,6 +67,12 @@ exports.saveUser = (req, res) => {
             description: '',
           }],
         },
+        extra: {
+          title: 'Add new +',
+          body: [{
+            description: '',
+          }],
+        },
       });
 
       return register.save()

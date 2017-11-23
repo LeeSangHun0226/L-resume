@@ -35,20 +35,56 @@ class RegisterIndexContainer extends Component {
       active: false,
     }, {
       path: 'new',
-      name: 'Add New +',
+      name: 'Add new +',
       active: false,
     }]
   }
 
   componentDidMount() {
+    // console.log(this.props)
+    const changeNavIndex = 5;
+    // const changeNav = this.props.history.location.state;
     const email = localStorage.getItem('email');
     axios.get(`http://${fetchServerConfig.ip}:4000/api/title/${email}`)
     .then(res => {
-      this.setState({
-        title: res.data,
+      console.log(res.data.extraTitle)
+      return this.setState({
+        title: res.data.title,
         loading: true,
+        navList: update(
+          this.state.navList,
+          {
+            [changeNavIndex]: {
+              name: {
+                $set: res.data.extraTitle,
+              }
+            }
+          }
+        )
       })
     });
+  }
+
+  handleExtraTitleChange = (title) => {
+    const email = localStorage.getItem('email');
+    const changeNavIndex = 5;
+    return axios.post(`http://${fetchServerConfig.ip}:4000/api/register/extra/change/${email}`, {
+      title,
+    })
+    .then(() => {
+      return this.setState({
+        navList: update(
+          this.state.navList,
+          {
+            [changeNavIndex]: {
+              name: {
+                $set: title,
+              }
+            }
+          }
+        )
+      })
+    })
   }
 
   handleChangeTitle = () => {
@@ -166,6 +202,7 @@ class RegisterIndexContainer extends Component {
       handleSubmitTitle,
       handleChangeNavList,
       handleNavClick,
+      handleExtraTitleChange,
      } = this;
     return !loading ? <h2>loading</h2> : (
       <RegisterIndex
@@ -178,6 +215,7 @@ class RegisterIndexContainer extends Component {
         onChangeNavList={handleChangeNavList}
         navList={navList}
         onNavClick={handleNavClick}
+        onExtraTitleChange={handleExtraTitleChange}
       />
     );
   }

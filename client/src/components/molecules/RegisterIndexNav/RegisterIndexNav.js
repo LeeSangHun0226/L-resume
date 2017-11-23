@@ -19,6 +19,7 @@ const RegisterIndexNav = ({
   onChangeNavList,
   navList,
   onNavClick,
+  onExtraTitleChange,
 }) => {
   const navLocation = 'registerIndex';
   const email = localStorage.getItem('email');
@@ -56,15 +57,27 @@ const RegisterIndexNav = ({
       <FlexBox row space className={cx('nav-wrapper')}>
         {
           navList.map((nav, i) => {
+            // let changeSection;
             const active = nav.active;
-            
             return (
               <NavItem
                 key={i}
                 className={cx('nav', { active })}
                 onClick={() => {
                   onNavClick(i);
-                  history.push({
+                  if (nav.path === 'new' && nav.name === 'Add new +') {
+                    let changeTitle = prompt('change??');
+                    if (changeTitle === null) {
+                      changeTitle = prompt('change??');
+                    }
+                    onExtraTitleChange(changeTitle);
+                    return history.push({
+                      pathname: nav.path,
+                      state: changeTitle,
+                    })
+                  }
+
+                  return history.push({
                     pathname: nav.path
                   })
                 }}

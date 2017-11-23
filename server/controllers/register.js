@@ -185,3 +185,52 @@ exports.saveAward = (req, res) => {
     });
 };
 
+exports.extraGet = (req, res) => {
+  const { email } = req.params;
+
+  Register.findOne({ email }, (err, data) => {
+    if (err) res.send(err);
+    const sendData = data.extra;
+    return res.json(sendData);
+  });
+}
+
+exports.saveExtra = (req, res) => {
+  const { email } = req.params;
+  const { extra, title } = req.body;
+
+  Register.find({ email })
+    .then((data) => {
+      if (data.length === 0) {
+        const register = new Register({
+          email,
+          extra,
+        });
+
+        return register.save()
+          .then(saveExtraData => res.json(saveExtraData))
+          .catch(err => res.send({ err }));
+      }
+
+      return Register.update({ email }, { $set: {
+        'extra.body': extra,
+      } }, (err) => {
+        if (err) res.send({ err });
+        res.json({ update: 'success' });
+      });
+    });
+};
+
+exports.changeExtra = (req, res) => {
+  const { email } = req.params;
+  const { title } = req.body;
+
+  Register.update({ email }, {
+    $set: {
+      'extra.title': title,
+    },
+  }, (err) => {
+    if (err) res.send({ err });
+    res.json({ update: 'success' });
+  });
+};

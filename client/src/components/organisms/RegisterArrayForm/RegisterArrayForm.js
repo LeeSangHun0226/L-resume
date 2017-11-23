@@ -50,10 +50,13 @@ const RegisterArrayForm = ({
     ],
     academic: [
       { label: 'Description (Test name, score, year)', name: 'description'}
+    ],
+    extra: [
+      { label: 'Description', name: 'description' }
     ]
   }
 
-  console.log(labels[location][0].label === 'School Type' ? true : false)
+  // console.log(labels[location][0].label === 'School Type' ? true : false)
 
   return (
     <div className={cx('registerArrayForm')}>
