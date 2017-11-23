@@ -55,7 +55,7 @@ const RegisterEducationForm = ({
       { label: 'Description', name: 'description' }
     ]
   }
-  console.log(inputData)
+  // console.log(inputData)
   return (
     <div className={cx('RegisterEducationForm')}>
       {inputData.map((data, index) => (

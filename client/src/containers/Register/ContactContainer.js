@@ -24,7 +24,7 @@ class ContactContainer extends Component {
   }
 
   hadleUpdateValue = (e, name) => {
-    console.log(e.target.value, name)
+    // console.log(e.target.value, name)
     const updateValue = {}
     updateValue[name] = e.target.value;
     this.setState(updateValue)

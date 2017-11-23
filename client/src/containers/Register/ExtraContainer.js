@@ -22,7 +22,7 @@ class ExtraContainer extends Component {
     const email = localStorage.getItem('email');
     axios.get(`http://${fetchServerConfig.ip}:4000/api/register/extra/${email}`)
       .then(res => {
-        console.log(res)
+        // console.log(res)
         const { body, photo, link } = res.data;
 
         this.setState({
@@ -210,7 +210,7 @@ class ExtraContainer extends Component {
             }
           )
         });
-        console.log(res)
+        // console.log(res)
       })
   }
 

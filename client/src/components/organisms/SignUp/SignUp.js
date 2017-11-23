@@ -27,7 +27,7 @@ const SignUp = ({
     // signup: signUpError,
   } = error ? error : {};
 
-  console.log(signUpError)
+  // console.log(signUpError)
   return (
     <div className={cx('signUp-container')}>
         <div className={cx('content')}>

@@ -80,7 +80,7 @@ class Pdf extends Component {
   }
 
   validateExtra = (extra) => {
-    console.log(extra)
+    // console.log(extra)
     return (
       <div>
         <h3 className={cx('body-title')}>Extra Curricular</h3>

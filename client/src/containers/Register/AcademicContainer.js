@@ -203,7 +203,7 @@ class AcademicContainer extends Component {
       axios.post(`http://${fetchServerConfig.ip}:4000/api/link/academic/${email}`, {
         data: this.state.link,
       })
-      .then(res => console.log(res))
+      // .then(res => console.log(res))
     }
   )
 }
@@ -220,7 +220,7 @@ class AcademicContainer extends Component {
       axios.post(`http://${fetchServerConfig.ip}:4000/api/photo/academic/modify/${email}`, {
         data: this.state.photo,
       })
-        .then(res => console.log(res))
+        .then((res) => console.log(res))
         .catch(err => console.log(err))
     })
   }
