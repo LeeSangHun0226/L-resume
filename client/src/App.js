@@ -92,7 +92,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.authed)
     return this.state.loading === true ? <h1>Loading</h1> : (
       // return (
       <Provider store={store}>
