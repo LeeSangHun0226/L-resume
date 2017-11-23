@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import update from 'react-addons-update';
-import RegisterArrayForm from '../../components/organisms/RegisterArrayForm';
+import RegisterEducationForm from '../../components/organisms/RegisterEducationForm';
 import axios from 'axios';
 import { fetchServerConfig } from '../../config';
 
@@ -267,7 +267,7 @@ class EducationContainer extends Component {
     } = this;
 
     return (
-      <RegisterArrayForm
+      <RegisterEducationForm
         inputData={inputData}
         onAddBodyForm={handleAddBodyForm}
         onSubmit={handleSubmit}

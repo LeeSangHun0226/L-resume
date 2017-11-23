@@ -1,0 +1,134 @@
+@import 'utils';
+
+.RegisterEducationForm {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .label-container {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+
+    @include media("<medium") {
+      flex-direction: column;
+      padding: 0;
+      margin: 2rem;
+    }
+
+    .label {
+      width: 20%;
+
+      @include media("<medium") {
+        width: 100%;
+      }
+    }
+  }
+
+  .save-wrapper {
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    
+    .save-button {
+      margin: auto;
+      justify-content: center;
+    }
+  }
+
+  .add-wrapper {
+    padding-bottom: 1rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background: #f1f1f1;
+    width: 100%;
+
+    .button {
+      padding: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      background: white;
+      border: 0;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1rem;
+
+      &:hover {
+        outline: none;
+        cursor: pointer;
+        background: material-color('blue', 'a700');
+        color: white;
+        font-weight: 700;
+      }
+
+      &:active {
+        outline: none;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .photo-link-wrapper {
+      display: flex;
+      flex-direction: row;
+
+      @include media('<medium') {
+        flex-direction: column;
+      }
+      // justify-content: center;
+
+      .bar {
+        background: #f1f1f1;
+        width: 1rem;
+        height: 1rem;
+      }
+
+      .button1 {
+        padding: 1rem;
+        margin: auto;
+        background: white;
+        border: 0;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+
+        &:hover {
+          outline: none;
+          cursor: pointer;
+          color: white;
+          background: material-color('blue', 'a700');
+          font-weight: 700;
+        } 
+
+        &:active {
+          outline: none;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+  }
+  // background: material-color('teal', '600');
+  .photo-form {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+
+    .input {
+      padding: 2rem;
+      font-size: 1rem;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+  }
+}
