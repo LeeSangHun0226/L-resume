@@ -1,28 +1,54 @@
 @import 'utils';
 
 .registerForm {
-  background: white;
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 0;
+  margin-bottom: 9.7rem;
 
-  .label-container {
-    padding: 2rem;
-    display: flex;
-    justify-content: space-between;
-
-    @include media("<medium") {
-      flex-direction: column;
-      padding: 0;
-      margin: 2rem;      
+  .textForm{
+    text-align: center;
+    margin: 3rem 0;
+    h1{
+        font-size: 1.7rem;
+        color: #43484D;
+        margin-bottom: 1.2rem;
     }
+    p{
+        font-size: 1rem;
+    }
+  }
 
-    .label {
-      width: 20%;
-      // font-size: 1.2rem;
+  .label-wrapper{
+    padding: 2.8rem 0 0.8rem;
+    border: 1px solid #EBEBEB;
+    border-radius: 5px;
+    background-color: #FFFFFF;
 
-      @include media("<medium") {
-        width: 100%;
+      .label-container {
+        padding: 0.7rem 3.1rem 0.7rem 3.1rem;
+        display: flex;
+
+        @include media("<medium") {
+          flex-direction: column;
+          padding: 0;
+          margin: 2rem;
+        }
+
+        .label {
+          display: inline-block;
+          width: 10rem;
+          line-height: 3rem;
+          font-size: 1.14rem;
+          color: #43484D;
+
+          @include media("<medium") {
+            width: 100%;
+          }
+          .data-input{
+            flex: 1;
+          }
       }
     }
   }
@@ -35,7 +61,20 @@
 
     .button {
       margin: auto;
+      line-height: 2.8rem;
       justify-content: center;
+      font-size: 1.14rem;
+      font-weight: bold;
+      color: #0070FF;
+      width: 115px;
+      border: 2px solid #0070FF;
+      border-radius: 6px;
+      background-color: #FFFFFF;
+
+      &:hover{
+         background-color: #0070FF;
+         color: #ffffff;
+      }
     }
   }
   // background: material-color('teal', '600');

@@ -1,0 +1,126 @@
+—— js파일 변경사항. —— 
+
+1. components/atoms
+
+모바일 대응시 필요한 Hamburger버튼과 사이드 네비게이션 컴포넌트를 추가.
+Hamburger, Navigation폴더가 추가.
+
+2. components/atoms/Logo
+
+메인 페이지와 상세페이지들의 헤더 디자인이 다르기에 구조 변경이 있었고return값이 변경.
+
+3. components/atoms/ScrollButton
+
+모바일 푸터영역의 우측 이미지가 필요해서 ‘footerTopMobileImg’ import하였음.
+모바일 대응을 위해 return 값의 변경이 있었음.
+
+4. components/molecules/HeaderNav
+
+모바일대응 네이게이션 작동을 하기위해 '../../atoms/Navigation’경로에서 ‘NavigationApp’를 import.
+마찬가지로 모바일 대응을 위해 return 구조의 변경이 있음.
+
+5. components/molecules/RegisterIndexNav
+
+return값의 변경이 있음.
+input 스타일 변경을 위해 span 태그 추가.
+기존에 없던 우측 상단 아이콘(Share, Preview) 생성을 위한 요소들 추가.
+
+6. components/organisms/Header
+
+return값의 변경이 있음.
+기존에 없던 언어 선택 폼 추가.
+메인 페이지 스타일 관련해서 header 클래스에 조건문으로 스타일 제어.
+
+7. components/organisms/Home
+
+return값의 변경이 있음.
+디자인에 맞춰 텍스트 전부 수정.
+
+8. components/organisms/RegisterArrayForm
+   components/organisms/RegisterEducationForm
+
+return값의 변경이 있음.
+각 영역별로 헤더 텍스트가 다르기에 조건문으로 각 영역별로 적용.
+‘photo-link-wrapper’클래스 안의 ‘bar’클래스인 div 제거.
+‘photo-form’, ‘link-form’클래스를 추가,수정.
+
+9. components/organisms/RegisterArrayForm
+
+‘button-wrapper’클래스 안의 ‘button’ 클래스에서 ‘roundCorner width={20}’ 제거.
+
+
+10. components/organisms/SignUp
+
+스타일 변경에 따른 InputError태크 위치 변경.
+
+11. components/pages/LoginPage
+
+location 지정을 위해 구조 수정.
+
+
+—— 스타일 수정 —— 
+
+Button.scss
+FlexBox.scss
+Input.scss
+InputError.scss
+Logo.scss
+NavItem.scss
+ScrollButton.scss
+Textarea.scss
+HeaderNav.scss
+RegisterIndexNav.scss
+Footer.scss
+Header.scss
+Home.scss
+Login.scss
+RegisterArrayForm.scss
+RegisterEducationForm.scss
+RegisterForm.scss
+SignUp.scss
+RegisterTemplate.scss
+_responsive.scss
+index.scss
+
+—— 기타 ——
+
+파비콘 아이콘 변경.
+footer-top-mobile.png, hamburger.png, remove.svg, triangle.png 추가.
+
+
+—— 디자인 변경사항 ——
+
+메인 페이지.
+1. input error의 위치, 스타일 변경.
+2. input에서 focus 변경. background 컬러, 크기 조정.
+3. 버튼 크기 하나로 조정.
+4. 메인 이미지 크기 조정, 
+5. 전체적으로 텍스트 크기, color 조정.
+
+상세페이지.
+1. input 포커스 조정.
+2. 백그라운드 컬러 조정. 
+3. 버튼 스타일 변경. 위치조정, 컬러 변경, 포커스시 에니메이션 추가.
+4. 헤더영역 위치 조정.
+5. resume입력 부분 포커스 효과 추가.
+6. textarea, select 스타일 변경.
+
+로그인페이지.
+1. 백그라운드 컬러 조정.
+2. input 간격 조정. 
+3. input error 위치 조정.
+
+헤더영역
+1. 위치조정
+2. 햄버거 버튼에 인터랙션 추가.
+
+푸터영역
+1. 위치 조정
+
+
+
+
+
+
+
+

@@ -28,7 +28,8 @@ const Home = ({
             Resume Builder
           </h2>
           <p className={cx('home-sub-title')}>
-            Build your own resume with the click of a button.
+              Lprep에서 운영하는 입시용 Resume Builder 입니다.<br />
+              본인의 resume을 언제든지 편하게 작성 해보세요.
           </p>
           <SignUpContainer history={history} />
         </div>
@@ -40,7 +41,7 @@ const Home = ({
               Extracurricular Activities
             </p>
             <p className={cx('middle-content-sub-title')}>
-              A place where you can keep a record of all the activities you have been a part of.
+                A place where you can keep a record of all the activities you have been a part of.
             </p>
           </div>
         </div>
@@ -50,7 +51,7 @@ const Home = ({
               File sharing
             </p>
             <p className={cx('middle-content-sub-title')}>
-              It’s simple, fast and easy to use. You can share your files through our mobile app and our website.
+                It’s simple, fast and easy to use. You can share your files through our mobile app and our website.
             </p>
           </div>
         </div>
@@ -70,7 +71,7 @@ const Home = ({
               PDF/Word/JPG
             </p>
             <p className={cx('middle-content-sub-title')}>
-              You can select the file type of your choice.
+                You can select the file type of your choice.
             </p>
           </div>
         </div>
@@ -98,16 +99,14 @@ const Home = ({
       <div className={cx('last-wrapper')}>
         <img src={notebookSVG} alt="notebookSVG" className={cx('last-logo')}/>
         <p className={cx('last-title')}>
-          Start right now!
+          지금 바로 시작해보세요.
         </p>
         <p className={cx('last-sub-title')}>
-          If you invest 10 minutes a week, your resume will be created within a year.
-        </p>
-        <p className={cx('last-sub-title')}>
-          Just fill in the blanks.
+            1주일에 10분만 투자하면 <span className={cx('text-break')}>1년만에 자신의 이력서가 만들어집니다.<br /></span>
+            내용만 채워보세요.
         </p>
         <div className={cx('button')}>
-          <Button roundCorner blue onClick={() => window.scroll(0, 0)}>Start</Button>
+          <Button roundCorner blue onClick={() => window.scroll(0, 0)}>무료로 시작</Button>
         </div>
       </div>
     </div>

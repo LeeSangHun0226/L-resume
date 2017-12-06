@@ -11,15 +11,12 @@
   margin: auto;
 
   @include media("<huge") {
-    width: 1024px;
   }
 
   @include media("<large") {
-    width: 768px;
   }
 
   @include media("<medium") {
-    width: 90%;
   }
 
   .bar {
@@ -28,22 +25,26 @@
   }
 
   .content {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 4.7rem;
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    width: 1170px;
-
+    max-width: 74.8rem;
+    width: 100%;
     justify-content: space-around;
 
     @include media("<large") {
       width: 100%;
+
     }
 
     @include media("<medium") {
       width: 100%;
       flex-direction: column;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-align-items: center;
+      align-items: center;
     }
 
     h3 {
@@ -54,15 +55,25 @@
     }
 
     .form {
+      position: relative;
       display: flex;
       flex-direction: column;
-      margin-left: auto;
-      margin-right: auto;
-      width: 30%;
+      width: 25.7rem;
+
+      @include media("<large") {
+        width: 23rem;
+      }
 
       @include media("<medium") {
-        width: 80%;
-        padding-bottom: 1rem;
+        width: 85%;
+        padding-bottom: 2rem;
+      }
+
+      Input{
+        height: 60px;
+        line-height: 60px;
+        padding: 0px 1.4rem;
+        flex: none;
       }
 
       .term {
@@ -71,18 +82,20 @@
         padding-top: 1rem;
         color: white;
         font-weight: 200;
+        a{
+            color: #ffffff;
+        }
       }
     }
 
     .form-button {
+      position: relative;
       display: flex;
       flex-direction: column;
-      margin-left: auto;
-      margin-right: auto;
-      width: 20%;
+      width: 11.8rem;
+
 
       @include media("<large") {
-        width: 30%;
         // padding-top: 1rem;
         // margin-left: 3rem;
       }

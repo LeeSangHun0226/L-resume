@@ -8,19 +8,26 @@
   user-select: none;
   cursor: pointer;
 
-  @include media("<medium") {
-    // font-size: 1.5rem;
-  }  
+      @include media("<medium") {
+        // font-size: 1.5rem;
+      }
+      .img-wrapper{
+        display: inline-block;
+        vertical-align: middle;
+            .white{
+              display: inline-block;
 
-  .img {
-    width: 100%;
-  }
+                @include media("<small"){
+                    display: none;
+                }
+            }
 
-  &.home {
-    color: white;
-     
-    @include media("<medium") {
-      color: black;
-    }  
-  }
+            .black{
+                display: none;
+
+                @include media("<small"){
+                    display: inline-block;
+                }
+            }
+      }
 }

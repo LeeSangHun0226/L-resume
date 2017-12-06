@@ -2,15 +2,19 @@
 
 .textarea {
   outline: none;
-  border-radius: 2px;
-  border: 1px solid material-color('grey', '400');
-  padding: 0.5rem;
-  font-size: 1.25rem;
-  transition: color .3s, border-color .3s;
-  width: 100%;
-  
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  padding: 0.7rem 1.4rem;
+  font-size: 1rem;
+  transition: .3s all;
+  -webkit-transition: .3s all;
+  flex: 1;
+  background-color: #ffffff;
+  line-height: 1.6rem;
+  height: 11rem;
+
   @include media("<huge") {
-      width: 85%;
+      width: 100%;
       margin: auto;
   }
 
@@ -19,11 +23,10 @@
     height: 10rem;
   }
   &:focus {
-    border: 1px solid material-color('teal', '600');
-    color: material-color('teal', '500');
+    color: #43484D;
+    background-color: #f1f1f1;
     &::placeholder {
        color: material-color('teal', '400');
     }
   }
 }
-

@@ -36,12 +36,13 @@ const RegisterIndexNav = ({
               </div>
               <button className={cx('edit-button')} onClick={onChangeTitle}>
                 <img className={cx('image')} src={newEditImg} alt="new-edit" />
-              </button>  
+              </button>
             </div>
           :
-            <form onSubmit={onSubmitTitle} type="text">
-              <input type="text" onChange={onUpdateTitle} />
-              <input type="submit" value="submit" />
+            <form onSubmit={onSubmitTitle} type="text" className={cx('edit-form')}>
+              <input type="text" onChange={onUpdateTitle} className={cx('edit-text')} placeholder='write your resume title' />
+              <span className={cx('focus-border')}></span>
+              <input type="submit" value="submit" className={cx('edit-submit')} />
             </form>
         }
         <NavItem
@@ -51,7 +52,17 @@ const RegisterIndexNav = ({
             pathname: `/pdf/${email}`,
         })
       }}>
-          <a href={pdflink}>download</a>
+          <p className={cx('share-text')}>Share</p>
+          <a href='#none' className={cx('preview')}>
+              <div className={cx('preview-wrapper')}>
+                  Preview
+              </div>
+          </a>
+          <a href={pdflink}>
+              <div className={cx('download-wrapper')}>
+                  Download
+              </div>
+          </a>
         </NavItem>
       </FlexBox>
       <FlexBox row space className={cx('nav-wrapper')}>
@@ -89,7 +100,7 @@ const RegisterIndexNav = ({
                   </NavItem>
                 //   <button className={cx('edit-button')} onClick={onChangeTitle}>
                 //     <img className={cx('image')} src={newEditImg} alt="new-edit" />
-                //   </button>  
+                //   </button>
                 // </div>
               )
             }

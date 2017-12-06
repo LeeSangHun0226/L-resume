@@ -4,20 +4,20 @@
   // display: flex;
   // justify-content: center;
   // align-items: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 1rem 2.3rem 0.8rem;
   font-size: 1.2rem;
   font-weight: 800;
   color: black;
   opacity: 0.8;
   cursor: pointer;
   transition: all .3s;
+  -webkit-transition: all .3s;
   user-select: none;
 
   &.home {
     color: white;
 
-    @include media("<medium") {
+    @include media("<small") {
       color: black;
     }
   }

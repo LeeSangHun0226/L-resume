@@ -32,6 +32,7 @@ const SignUp = ({
     <div className={cx('signUp-container')}>
         <div className={cx('content')}>
           <div className={cx('form')}>
+            <InputError error={emailError} />
             <Input
               transparent
               value={email}
@@ -42,9 +43,9 @@ const SignUp = ({
             <div className={cx('term')}>
               회원가입시 &nbsp; <a href="http://naver.com">이용약관</a>에 자동동의
             </div>
-            <InputError error={emailError} />
           </div>
           <div className={cx('form')}>
+            <InputError error={passwordError} />
             <Input
               transparent
               value={password}
@@ -53,10 +54,9 @@ const SignUp = ({
               placeholder="Password(비밀번호)"
               type="password"
             />
-            <InputError error={passwordError} />
-            <InputError error={signUpError} />
           </div>
           <div className={cx('form-button')}>
+            <InputError error={signUpError} />
             <Button roundCorner onClick={onSignUp} color={"blue"}>무료로 시작</Button>
           </div>
         </div>

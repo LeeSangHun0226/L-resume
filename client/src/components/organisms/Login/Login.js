@@ -21,7 +21,7 @@ const Login = ({
   onLogIn,
   loginError,
 }) => {
-  
+
   const { email, password } = form;
 
   const {
@@ -42,8 +42,11 @@ const Login = ({
             onChange={onChangeInput}
             name="email"
             placeholder="E-mail(이메일주소)"
+            className={cx('form-input')}
           />
-          <InputError error={emailError} />
+          <InputError
+              error={emailError}
+              />
         </div>
         <div className={cx('form')}>
           <Input
@@ -52,15 +55,26 @@ const Login = ({
             name="password"
             placeholder="Password(비밀번호)"
             type="password"
+            className={cx('form-input')}
           />
-          <InputError error={passwordError} />
-          <TextButton onClick={onResetPassword}>비밀번호 찾기</TextButton>
+          <InputError
+              error={passwordError}
+              />
+          <TextButton
+              onClick={onResetPassword}
+              className={cx('form-password')}>
+              비밀번호 찾기
+          </TextButton>
         </div>
         <div className={cx('form')}>
           <InputError error={loginError} />
         </div>
         <div className={cx('form')}>
-          <Button roundCorner className={cx('button')} onClick={onLogIn}>로그인</Button>
+          <Button roundCorner
+              className={cx('button')}
+              onClick={onLogIn}>
+              로그인
+          </Button>
         </div>
       </div>
     </div>

@@ -14,11 +14,25 @@ const Header = ({
   location,
 }) => {
   return (
-    <div className={cx('header', location )}>
+    <div className={cx('header', location )}
+         style={location === 'home' ? {background: 'none'} : {}}>
       <div className={cx('responsive')}>
         <div className={cx('logo-wrapper')}>
           <Logo location={location} authed={authed}/>
+          {
+              location === 'home'?
+              <div className={cx('lang-wrapper')}>
+                  <div className={cx('lang-text')}>KR</div>
+                  <div className={cx('dropdown-icon')}></div>
+              </div>
+              :
+              <div className={cx('lang-wrapper-other')}>
+                  <div className={cx('lang-text')}>KR</div>
+                  <div className={cx('dropdown-icon')}></div>
+              </div>
+          }
         </div>
+
         <div>
           <HeaderNav authed={authed} location={location}/>
         </div>

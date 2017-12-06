@@ -1,12 +1,9 @@
 @import 'utils';
 
 .header {
-  height: 5rem;
+  height: 7rem;
   border-bottom: 0.5px solid #E6E6E6;
-
-  @include media("<medium") {
-    background: transparent;
-  }
+  background-color: #ffffff;
 
   &.home {
     border-bottom: 0px
@@ -20,13 +17,106 @@
     justify-content: space-between;
     align-items: center;
 
-    @include media("<medium") {
-      width: 90%;
+    @include media("<small") {
+        background-color: #ffffff;
     }
 
     .right-side {
       display: flex;
       margin-left: auto;
+    }
+    .logo-wrapper{
+        .logo{
+            .img-wrapper{
+                width: 10rem;
+
+            @include media("<medium"){
+                width: 9rem;
+            }
+                .white{
+                    @include media("<medium"){
+                        display: none;
+                    }
+                }
+                .black{
+                    display: none;
+                    @include media("<medium"){
+                        display: block
+                    }
+                }
+
+            }
+        }
+        .lang-wrapper-other{
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 2.1rem;
+            margin-bottom: 0.5rem;
+            padding: 0.4rem 0.8rem 0.3rem 0.7rem;
+            border: 3px solid #B3B1B3;
+            border-radius: 4px;
+            cursor: pointer;
+
+            @include media("<medium"){
+                margin-left: 1rem;
+                padding: 0.3rem 0.7rem 0.2rem 0.6rem;
+            }
+
+            @include media("<small") {
+            display: none;
+            }
+
+            .lang-text{
+                display: inline-block;
+                font-size: 1rem;
+                color: #B3B1B3;
+            }
+
+            .dropdown-icon {
+                display: inline-block;
+                margin-left: 0.5rem;
+                width: 0;
+                height: 0;
+                border-left: 3px solid transparent;
+                border-right: 3px solid transparent;
+                border-top: 6px solid #B3B1B3;
+            }
+        }
+        .lang-wrapper{
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 2.1rem;
+            margin-bottom: 0.5rem;
+            padding: 0.4rem 0.8rem 0.3rem 0.7rem;
+            border: 3px solid #ffffff;
+            border-radius: 4px;
+            cursor: pointer;
+
+            @include media("<medium"){
+                margin-left: 1rem;
+                padding: 0.3rem 0.7rem 0.2rem 0.6rem;
+            }
+
+            @include media("<small") {
+            display: none;
+            }
+
+            .lang-text{
+                display: inline-block;
+                font-size: 1rem;
+                color: #ffffff;
+            }
+
+            .dropdown-icon {
+                display: inline-block;
+                margin-left: 0.5rem;
+                width: 0;
+                height: 0;
+                border-left: 3px solid transparent;
+                border-right: 3px solid transparent;
+                border-top: 6px solid #ffffff;
+            }
+      }
     }
   }
 

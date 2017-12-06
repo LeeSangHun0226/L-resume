@@ -4,6 +4,7 @@
   display: flex;
   &.row {
     flex-direction: row;
+    border-radius: 6px;
   }
   &.column {
     flex-direction: column;

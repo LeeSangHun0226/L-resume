@@ -2,12 +2,13 @@ import React, { Component} from 'react';
 import styles from './ScrollButton.scss';
 import classNames from 'classnames/bind';
 import footerTopImg from '../../../images/footer-top.svg';
+import footerTopMobileImg from '../../../images/footer-top-mobile.png';
 
 const cx = classNames.bind(styles);
 
 class ScrollButton extends Component {
   state = {
-    intervalId: 0   
+    intervalId: 0
   };
 
   scrollStep = () => {
@@ -16,7 +17,7 @@ class ScrollButton extends Component {
     }
     window.scroll(0, window.pageYOffset - this.props.scrollStepInPs);
   }
-  
+
   scrollToTop = () => {
     const intervalId = setInterval(this.scrollStep, this.props.delayInMs);
     this.setState({ intervalId });
@@ -28,7 +29,11 @@ class ScrollButton extends Component {
         className={cx('scrollButton')}
         onClick={() => this.scrollToTop()}
       >
-        <img src={footerTopImg} alt="footerTop" />
+        <img className={cx('footer-top')}src={footerTopImg} alt="footerTop" />
+        <div className={cx('mobile-footer-top')}>
+            <div className={cx('mobile-footer-top-text')}>Top</div>
+            <img className={cx('mobile-footer-top-img')} src={footerTopMobileImg} alt="footerTop" />
+        </div>
       </button>
     );
   }
@@ -36,11 +41,11 @@ class ScrollButton extends Component {
 
 
 // const ScrollButton = ({
-//   children, 
-//   flex, 
-//   className, 
-//   roundCorner, 
-//   invert, 
+//   children,
+//   flex,
+//   className,
+//   roundCorner,
+//   invert,
 //   flat,
 //   color,
 //   padding="0.5rem",

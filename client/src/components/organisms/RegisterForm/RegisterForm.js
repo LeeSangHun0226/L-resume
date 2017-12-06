@@ -13,15 +13,20 @@ const RegisterForm = ({
   onUpdateValue,
 }) => {
 
-  
+
   return (
     <div className={cx('registerForm')}>
+        <div className={cx('textForm')}>
+            <h1>Contact info</h1>
+            <p>기본적인 정보를 입력하는 공간입니다.</p>
+        </div>
+        <div className={cx('label-wrapper')}>
       {inputData.map((data, i) => {
         return (
           <div key={i} className={cx('label-container')}>
             <p className={cx('label')}>{data.label}</p>
             {
-              data.label === 'description' 
+              data.label === 'description'
               ?
                 <Textarea
                   // fullWidth
@@ -39,9 +44,10 @@ const RegisterForm = ({
             }
           </div>
       )})}
-      <div className={cx('button-wrapper')}>
-        <Button className={cx('button')} roundCorner width={20} onClick={onSubmit}>Save</Button>
-      </div>
+          <div className={cx('button-wrapper')}>
+            <Button className={cx('button')} onClick={onSubmit}>SAVE</Button>
+          </div>
+        </div>
     </div>
   );
 };

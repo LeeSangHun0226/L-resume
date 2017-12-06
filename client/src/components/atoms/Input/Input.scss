@@ -2,33 +2,34 @@
 
 .input {
   outline: none;
-  background: #fafafa;
+  background-color: #ffffff;
   border-radius: 6px;
-  border: 1px solid material-color('grey', '400');
-  padding: 1.5rem;
-  font-size: 1.25rem;
-  transition: color .3s, border-color .3s;
-  width: 100%;
+  border: 1px solid #bdbdbd;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+  font-size: 1rem;
+  transition: .3s all;
+  -webkit-transition: .3s all;
+  flex: 1;
 
-  @include media("<huge") {
-    width: 80%;
-    margin: auto;
+  @include media("<medium") {
+    width: auto;
+    line-height: 1.2rem;
+    height: 4.1rem;
   }
-  // height: 2rem;
   &.full-width {
     width: 100%;
   }
   &:focus {
-    border: 1px solid material-color('blue', 'a700');
-    color: material-color('blue', 'a700');
+    color: #43484D;
+    background: #f1f1f1;
     &::placeholder {
-       color: material-color('blue', 'a700');
+       color: #43484D;
     }
   }
 
-  &.transparnet {
-    background: rgba(240, 240, 240, 0.8);
-    border: 0;
+  &.transparent {
+    background: rgb(240, 240, 240);
   }
 }
 

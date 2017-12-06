@@ -201,7 +201,7 @@ class RegisterIndexContainer extends Component {
   render() {
 
     const { history } = this.props;
-    const { 
+    const {
       title,
       isChangedTitle,
       navList,

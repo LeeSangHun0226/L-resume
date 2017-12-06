@@ -1,15 +1,11 @@
 @import 'utils';
 
 .input-error {
-  opacity: 0.8;
-  background: material-color('blue', '50');
-  border: 1px solid material-color('blue', '50');
-  border-radius: 6px;
-  color: material-color('blue', '700');
-  padding: 1rem;
-  font-size: 0.80rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  position: absolute;
+  top: -1.6rem;
+  color: #ec1919;
+  font-size: 0.9rem;
+  font-weight: bold;
   &.no-margin-top {
     margin-top: 0;
   }

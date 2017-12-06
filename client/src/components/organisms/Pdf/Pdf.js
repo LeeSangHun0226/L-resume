@@ -32,14 +32,14 @@ class Pdf extends Component {
   validateEducation = (education) => {
     return (
       <div>
-        <h3 className={cx('body-title')}>Education</h3>
+        <h3 className={cx('body-title')}>EDUCATION</h3>
         {
           education.body.map(data => {
             const description = data.description.split('\n');
             return (
               <div>
                 <div className={cx('body-wrapper')}>
-                  <p className={cx('body')}>{data.schoolType}</p>
+                  <p className={cx('body-school')}>{data.schoolType}</p>
                   <p className={cx('body')}>{data.startDate} - {data.endDate}</p>
                 </div>
                 <div className={cx('body-description')}>
@@ -60,7 +60,7 @@ class Pdf extends Component {
   validateAcademic = (academic) => {
     return (
       <div>
-        <h3 className={cx('body-title')}>Academic</h3>
+        <h3 className={cx('body-title')}>ACADEMIC ACHIEVEMENTS</h3>
         {
           academic.body.map(data => {
             const description = data.description.split('\n');

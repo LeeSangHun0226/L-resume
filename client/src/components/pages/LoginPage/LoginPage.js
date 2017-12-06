@@ -6,7 +6,8 @@ import LoginContainer from '../../../containers/LoginContainer';
 const LoginPage = () => {
   return (
     <PageTemplate
-      header={<HeaderContainer authed/>}
+      header={<HeaderContainer authed location="login"/>}
+      location="login"
     >
       <LoginContainer />
     </PageTemplate>

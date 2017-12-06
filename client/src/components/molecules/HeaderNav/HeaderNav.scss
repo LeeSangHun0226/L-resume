@@ -1,4 +1,39 @@
-// .header-nav {
-//   background: yellow;
-//   color: black;
-// }
+@import 'utils';
+
+.header-nav {
+    .nav-item{
+        display: none;
+        height: 16px;
+        width: 51px;
+        color: #FFFFFF;
+        font-size: 1.14rem;
+        font-weight: bold;
+        line-height: 16px;
+        text-align: center;
+
+        @include media(">small") {
+            display: block;
+        }
+    }
+    .nav-item-logout{
+        display: none;
+        color: #444444;
+        @include media(">small") {
+            display: block;
+        }
+    }
+    .hamburger{
+        display: none;
+        cursor: pointer;
+
+        @include media("<small") {
+            display: block;
+
+        }
+        .menu-list{
+            .menu-item{
+                display: none;
+            }
+        }
+    }
+}

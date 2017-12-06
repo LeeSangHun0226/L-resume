@@ -11,11 +11,17 @@ const Logo = ({ location, authed }) => {
   return (
     <Link to="/" className={cx('logo', location)}>
       {
-        !authed 
-          ? <img className={cx('img')} src={whiteLogo} alt="logo-img" />
-          : <img className={cx('img')} src={blackLogo} alt="logo-img" />
+          location === 'home'?
+       <div className={cx('img-wrapper')}>
+           <img className={cx('white')} src={whiteLogo} alt="logo-img" />
+           <img className={cx('black')} src={blackLogo} alt="logo-img" />
+       </div>
+       :
+       <div className={cx('img-wrapper')}>
+           <img src={blackLogo} alt="logo-img" />
+       </div>
       }
-      
+
     </Link>
   );
 };
